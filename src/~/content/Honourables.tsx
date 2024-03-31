@@ -27,6 +27,21 @@ function Honourables() {
                         </a>
                     </p>
                 </Box>
+                <Box src="/harvard.png" size={40} extrablur>
+                    <h1>CS50 Certificate</h1>
+                    <p>
+                        <b>CS50's Introduction to Computer Science Certificate</b> <br /> Attained in
+                        <b> December 2022</b> for successful completion of <b>CS50x</b> offered by Harvard University.
+                        <br />
+                        <a
+                            className="internallink"
+                            href="https://cs50.harvard.edu/certificates/62d6f9dd-7d87-49a0-a437-f6cd334cdc45"
+                            target="_blank"
+                        >
+                            https://cs50.harvard.edu/certificates/62d6f9dd-7d87-49a0-a437-f6cd334cdc45
+                        </a>
+                    </p>
+                </Box>
                 <Box src="/iawards.png" size={50}>
                     <h1>National iAwards Merit</h1>
                     <p>
@@ -43,23 +58,8 @@ function Honourables() {
                         </a>
                     </p>
                 </Box>
-                <Box src="/harvard.png" size={40} extrablur>
-                    <h1>CS50 Certificate</h1>
-                    <p>
-                        <b>CS50's Introduction to Computer Science Certificate</b> <br /> Attained in
-                        <b> December 2022</b> for successful completion of <b>CS50x</b> offered by Harvard University.
-                        <br />
-                        <a
-                            className="internallink"
-                            href="https://cs50.harvard.edu/certificates/62d6f9dd-7d87-49a0-a437-f6cd334cdc45"
-                            target="_blank"
-                        >
-                            https://cs50.harvard.edu/certificates/62d6f9dd-7d87-49a0-a437-f6cd334cdc45
-                        </a>
-                    </p>
-                </Box>
                 <Box src="/mbhs.png" size={70}>
-                    <h1>Year 8/9 Dux of 2021/2022</h1>
+                    <h1>Academic Excellence</h1>
                     <p>
                         <b>Murray Bridge High School</b> <br /> <b>Multi-year</b> Dux student at MBHS; highest achieving
                         <b> academic student</b> for grade point average across multiple years. Striving student in
@@ -67,11 +67,11 @@ function Honourables() {
                     </p>
                 </Box>
                 <Box src="/bunyipst.png" size={45}>
-                    <h1>MBHS Student Robotics Club Captain</h1>
+                    <h1>MBHS Robotics Captain</h1>
                     <p>
-                        <b>May 2022 - Present</b> <br /> Club captain of <b>FIRST Tech Challenge</b> teams 15215, 22407,
-                        and 24736. <b>Led</b> the club push <b>new frontiers</b>, in both <b>software programming</b>{" "}
-                        and <b>community outreach</b>.
+                        <b>May 2022 - Present</b> <br /> Club captain of the <b>FIRST Tech Challenge</b> MBHS Student Robotics Club.
+                        Pushed <b>new frontiers</b> in both <b>software programming</b>{" "}
+                        and <b>community outreach</b>, bringing us to Sydney for the 2023 <b>National Championship</b>.
                         <br />
                         <a
                             className="internallink"
@@ -80,6 +80,15 @@ function Honourables() {
                         >
                             https://www.murraybridge.news/p/robotics-students-are-on-a-roll-at
                         </a>
+                    </p>
+                </Box>
+                <Box src="/roboroos.png" size={45}>
+                    <h1>RoboRoos FRC Student</h1>
+                    <p>
+                        <b>2024 CRESCENDO</b> <br />
+                        Member of the <b>4537 RoboRoos</b> FIRST Robotics Competition team, participating as a remote software contributor.
+                        <b> Developed</b> skills in <b>command-based</b> and <b>functional</b> programming paradigms, as well as sustainable
+                        <b> software architecture</b> practices.
                     </p>
                 </Box>
             </div>

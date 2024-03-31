@@ -66,6 +66,7 @@ function Navbar() {
                 className={location.pathname === path ? "navbar-img active" : "navbar-img"}
                 src={src}
                 alt={alt}
+                title={alt}
             />
             {location.pathname === path ? <div id="locator" /> : null}
         </div>
@@ -73,6 +74,7 @@ function Navbar() {
 
     const NavbarButton: FC<NavbarButtonProps> = ({ alt, path }) => (
         <button
+            title={alt}
             onClick={() => {
                 tclose();
                 goto(path);

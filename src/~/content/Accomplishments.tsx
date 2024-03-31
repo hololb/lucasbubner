@@ -52,9 +52,9 @@ function Accomplishments() {
                 <Box src="/tech.svg" size={50}>
                     <h1>Programming</h1>
                     <p>
-                        <b>Comprehensive</b> and <b>in-depth</b> understanding of programming structures involving
-                        object-oriented design, functional patterns, and module based constructs. Proficiency in
-                        <b> multiple</b> programming languages appropriate for a <b>wide range</b> of projects.
+                        Knowledgeable in <b>multiple</b> programming languages across <b>web development</b>, <b>robotics</b>, <b>game development</b>, and more.
+                        Familiar with <b>Shopify</b>, designing the frontend for <b>local businesses</b> to boost sales. <b>Adaptable</b> to new technologies and <b>environments</b>,
+                        demonstrating <b>critical thinking</b> and following <b>passion projects</b> for continuous improvement.
                     </p>
                 </Box>
                 <Box src="/bar.png" size={66}>

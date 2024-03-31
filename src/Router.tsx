@@ -97,7 +97,7 @@ function Router() {
                     <br />
                     <small style={{ fontSize: "0.8rem", color: "gray" }}>
                         Copyright ©{" "}
-                        <a style={{ color: "lightblue", textDecoration: "underline" }} href="https://lucasbubner.me">
+                        <a style={{ color: "lightblue", textDecoration: "underline" }} href="https://bubner.me">
                             Lucas Bubner
                         </a>
                         , 2024.

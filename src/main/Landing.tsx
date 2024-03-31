@@ -1,5 +1,5 @@
 /**
- * lucasbubner.me
+ * bubner.me
  * @author Lucas Bubner, 2023
  */
 import { useEffect, useState } from "react";
