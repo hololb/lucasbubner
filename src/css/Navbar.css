@@ -7,9 +7,9 @@
     transform: translateX(-50%);
     border-radius: 20px;
     width: 35%;
-    height: 75px;
+    height: 78px;
     margin: auto;
-    background-color: #292929;
+    background-color: #181a1b;
 }
 
 #imagebuttons,
@@ -27,6 +27,11 @@
 #mobileheader img:hover {
     cursor: pointer;
     background-color: rgba(70, 70, 70, 0.9);
+}
+
+#imagebuttons img,
+#mobileheader img {
+    padding: 2px;
 }
 
 @media only screen and (max-width: 1160px) {

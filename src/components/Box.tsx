@@ -5,7 +5,7 @@
 import { CSSProperties, HTMLAttributes } from "react";
 
 interface BoxProps extends HTMLAttributes<HTMLElement> {
-    src: string;
+    src?: string;
     size: number;
     extrablur?: boolean;
     small?: boolean;

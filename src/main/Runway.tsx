@@ -89,14 +89,14 @@ function Runway() {
     ];
 
     const images = [
-        ["/iawards.png", "/bunyipst.png", "/ftc.png", "/bunyipsc.png"],
+        ["/iawards.png", "/bunyipst.png", "/ftc.png", "/frc.png"],
         ["/firebase.png", "/vercelc.png", "/unity.png", "/githubw.png"],
         ["/react.svg", "/flask.png", "/nextjs.svg", "/tailwind.svg"],
         ["/cs.svg", "/typescript.svg", "/pythonf.svg", "/java.png"],
     ];
 
     const titles = [
-        ["Society: iAwards 2023", "Society: Murray Bridge High School Student Robotics Club", "Society: FIRST Tech Challenge Team", "Society: Bunyip Bellower Developer"],
+        ["Society: iAwards 2023", "Society: Murray Bridge High School Student Robotics Club", "Society: FIRST Tech Challenge Team Captain", "Society: FIRST Robotics Competition Team Member"],
         ["Platform: Firebase", "Platform: Vercel", "Platform: Unity", "Platform: GitHub"],
         ["Framework: React", "Framework: Flask", "Framework: Next.js", "Framework: Tailwind CSS"],
         ["Language: C#", "Language: TypeScript", "Language: Python", "Language: Java"],
@@ -173,7 +173,7 @@ function Runway() {
                                 </p>
                             </div>
                             <div className="mini-element">
-                                <Link to="/pages/home" id="next">
+                                <Link to="/~" id="next">
                                     Read more{" "}
                                     <img alt="right arrow" src="/rightarrow.svg" className="rightarrow moving" />
                                 </Link>

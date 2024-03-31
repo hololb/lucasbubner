@@ -55,7 +55,7 @@
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url("/bgblur.png");
+    background-image: url("/bg2.0b.png");
 }
 
 .container {
@@ -95,8 +95,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.2);
-    filter: blur(5px);
+    box-shadow: inset 0 0 2000px rgba(60, 60, 60, 0.66);
+    filter: blur(33px);
 }
 
 .box {
@@ -119,6 +119,8 @@
     background-size: cover;
     overflow: hidden;
     transition: box-shadow 500ms, backdrop-filter 500ms;
+    color: #ffe2e2 !important;
+    text-shadow: 0 0 10px #000;
 }
 
 .bsm {
@@ -138,6 +140,7 @@
 
 .box h1 {
     line-height: 2rem;
+    color: #ffffff;
 }
 
 .clicknoti {
@@ -145,6 +148,7 @@
     line-height: 0;
     font-size: 0.8rem;
     font-weight: 600;
+    color: #ffffff;
 }
 
 @media only screen and (max-width: 1160px) {
@@ -164,7 +168,7 @@ a:not(.internallink) {
 }
 
 .internallink {
-    color: white;
+    color: #5683ff;
     word-break: break-all;
 }
 
@@ -177,4 +181,38 @@ a:not(.internallink) {
 
 .inc {
     filter: blur(3px);
+}
+
+.dflex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col {
+    flex-direction: column;
+}
+
+.rounded {
+    border-radius: 8px;
+}
+
+.fb-resize {
+    width: 50%;
+}
+
+.box-realign {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 1160px) {
+    .fb-resize {
+        width: 90%;
+    }
+    .box-realign {
+        flex-direction: column;
+        width: 90%;
+    }
 }

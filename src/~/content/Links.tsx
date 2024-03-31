@@ -12,28 +12,37 @@ function Links() {
         <Layout>
             <div className="content-bg" />
             <div className="container no-mid">
-                <Box src="/github.svg" size={150} href="https://github.com/bubner/">
-                    <h1>GitHub</h1>
+                <Box src="/github.svg" size={170} href="https://github.com/bubner/">
+                    <h1 className="dflex-center col" style={{ gap: "4px" }}>
+                        GitHub
+                        <a href="https://github.com/bubner"><img className="rounded" src="/atbubner.png" style={{ height: "28px" }} /></a>
+                    </h1>
                     <span className="clicknoti">(click)</span>
-                    <p className="small">Major projects and software.</p>
+                    <p className="small">All my software projects and code repositories.</p>
                 </Box>
-                <Box src="/replit.png" size={40} href="https://replit.com/@LUCASBUBNER/">
-                    <h1>Replit</h1>
+                <Box src="/wakatime.svg" size={50} href="https://wakatime.com/@bubner">
+                    <h1 className="dflex-center col" style={{ gap: "4px" }}>
+                        WakaTime
+                        <a href="https://wakatime.com/@bubner"><img className="rounded" src="https://wakatime.com/badge/user/617e18c7-273e-4a36-be73-e7a0d8b31d1b.svg?style=for-the-badge" alt="Total time coded since Jun 30 2023" /></a>
+                    </h1>
                     <span className="clicknoti">(click)</span>
-                    <p className="small">Smaller projects and proof-of-concept activities.</p>
+                    <p className="small">My programming statistics since July 2023.</p>
                 </Box>
-                <Box src="/linkedin.png" size={30} href="https://linkedin.com/in/bubner/">
-                    <h1>LinkedIn</h1>
+                <Box src="/linkedin.png" size={36} href="https://linkedin.com/in/bubner/">
+                    <h1 className="dflex-center col" style={{ gap: "4px" }}>
+                        LinkedIn
+                        <a href="https://linkedin.com/in/bubner"><img className="rounded" src="/atme.png" style={{ height: "28px" }} /></a>
+                    </h1>
                     <span className="clicknoti">(click)</span>
-                    <p className="small">Industry certifications and experiences.</p>
+                    <p className="small">My industry certifications and experiences.</p>
                 </Box>
                 <Box
                     src="/proton.png"
                     size={20}
-                    href={"mailto:bubner@pro" + "ton.me"}
+                    href={"mailto:bubner@p" + "roton.me"}
                     small
                     onClick={() => {
-                        alert("bubner@pro" + "ton.me");
+                        alert("bubner@p" + "roton.me");
                     }}
                 >
                     <h1>Contact Email</h1>
