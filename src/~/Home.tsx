@@ -9,7 +9,7 @@ import "../css/Boxes.css";
 import { motion } from "framer-motion";
 
 function Home() {
-    const [publicRepos, setPublicRepos] = useState<number>();
+    const [publicRepos, setPublicRepos] = useState<number | undefined>(undefined);
     document.title = "Lucas Bubner • Home";
 
     // Ensure that the background image is loaded before displaying anything
@@ -55,7 +55,7 @@ function Home() {
                                 <strong style={{ fontSize: "36px" }}>Lucas Bubner</strong>
                             </motion.div>
                             <a href="https://github.com/bubner?tab=repositories" target="_blank">
-                                <span className="text-emp">{publicRepos}</span> repos
+                                <span className="text-emp">{publicRepos !== undefined ? publicRepos : "..."}</span> repos
                             </a>
                         </div>
                     </div>
