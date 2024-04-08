@@ -52,7 +52,7 @@ function Home() {
                                 <img src="/transparent.png" style={{ width: "50px", height: "50px" }} />
                             </div>
                             <motion.div initial={{ y: "200%" }} animate={{ y: 0 }} transition={{ delay: 3 }}>
-                                <strong style={{ fontSize: "36px" }}>Lucas Bubner</strong>
+                                <strong style={{ fontSize: "36px", whiteSpace: "nowrap" }}>Lucas Bubner</strong>
                             </motion.div>
                             <a href="https://github.com/bubner?tab=repositories" target="_blank">
                                 <span className="text-emp">{publicRepos !== undefined ? publicRepos : "..."}</span> repos
