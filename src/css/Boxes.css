@@ -201,10 +201,8 @@ a:not(.internallink) {
     width: 50%;
 }
 
-@media screen and (max-width: 380px) {
-    .autohide {
-        display: none;
-    }
+#autoscale {
+    font-size: 36px;
 }
 
 @media screen and (max-width: 1160px) {
@@ -214,5 +212,8 @@ a:not(.internallink) {
     .realign {
         flex-direction: column;
         width: 90%;
+    }
+    #autoscale {
+        font-size: 26px;
     }
 }

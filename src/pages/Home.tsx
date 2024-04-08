@@ -48,13 +48,11 @@ function Home() {
                                 alignItems: "center",
                             }}
                         >
-                            <div style={{ width: "70px", display: "flex" }}>
-                                <img src="/transparent.png" style={{ width: "50px", height: "50px" }} />
-                            </div>
+                            <img src="/transparent.png" style={{ width: "50px", height: "50px" }} />
                             <motion.div initial={{ y: "200%" }} animate={{ y: 0 }} transition={{ delay: 3 }}>
-                                <strong style={{ fontSize: "36px", whiteSpace: "nowrap" }}>Lucas Bubner</strong>
+                                <strong id="autoscale" style={{ whiteSpace: "nowrap" }}>Lucas Bubner</strong>
                             </motion.div>
-                            <a className="autohide" href="https://github.com/bubner?tab=repositories" target="_blank">
+                            <a href="https://github.com/bubner?tab=repositories" target="_blank">
                                 <span className="text-emp">{publicRepos !== undefined ? publicRepos : "..."}</span> repos
                             </a>
                         </div>
