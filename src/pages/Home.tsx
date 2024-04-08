@@ -32,7 +32,7 @@ function Home() {
         <Layout>
             <div className={loaded ? "fade-in content-bg" : "fade-out content-bg"} />
             <div className="container">
-                <div className="dflex-center" style={{ flexDirection: "column" }}>
+                <div className="dflex-center realign" style={{ flexDirection: "column" }}>
                     <div className="box bsm fb-resize">
                         <motion.div
                             initial={{ width: 0 }}
@@ -54,13 +54,13 @@ function Home() {
                             <motion.div initial={{ y: "200%" }} animate={{ y: 0 }} transition={{ delay: 3 }}>
                                 <strong style={{ fontSize: "36px", whiteSpace: "nowrap" }}>Lucas Bubner</strong>
                             </motion.div>
-                            <a href="https://github.com/bubner?tab=repositories" target="_blank">
+                            <a className="autohide" href="https://github.com/bubner?tab=repositories" target="_blank">
                                 <span className="text-emp">{publicRepos !== undefined ? publicRepos : "..."}</span> repos
                             </a>
                         </div>
                     </div>
                     <motion.div
-                        className="box-realign"
+                        className="dflex-center realign"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 4 }}

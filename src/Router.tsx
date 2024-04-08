@@ -6,13 +6,13 @@ import { useState, useEffect } from "react";
 import { Routes, Route, useLocation, useNavigate, Navigate } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { GotoContext } from "./components/GotoContext";
-import Landing from "./main/Landing";
-import Home from "./~/Home";
-import Accomplishments from "./~/content/Accomplishments";
-import Technology from "./~/content/Technology";
-import Honourables from "./~/content/Honourables";
-import Projects from "./~/content/Projects";
-import Links from "./~/content/Links";
+import Landing from "./landing/Landing";
+import Home from "./pages/Home";
+import Accomplishments from "./pages/content/Accomplishments";
+import Technology from "./pages/content/Technology";
+import Honourables from "./pages/content/Honourables";
+import Projects from "./pages/content/Projects";
+import Links from "./pages/content/Links";
 
 function Router() {
     const location = useLocation();

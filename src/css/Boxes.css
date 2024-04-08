@@ -201,17 +201,17 @@ a:not(.internallink) {
     width: 50%;
 }
 
-.box-realign {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+@media screen and (max-width: 380px) {
+    .autohide {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 1160px) {
     .fb-resize {
         width: 90%;
     }
-    .box-realign {
+    .realign {
         flex-direction: column;
         width: 90%;
     }
