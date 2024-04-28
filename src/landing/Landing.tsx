@@ -3,13 +3,14 @@
  * @author Lucas Bubner, 2023
  */
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
 import Runway from "./Runway";
 import "../css/Landing.css";
 
 function Landing() {
+    const nav = useNavigate();
     const [isWritten, setIsWritten] = useState(false);
     const [introDone, setIntroDone] = useState(false);
     const [isBgLoaded, setIsBgLoaded] = useState(false);
@@ -84,9 +85,12 @@ function Landing() {
             </div>
             {!introDone && (
                 <>
-                    <Link id="skip" to="/~" style={{ opacity: shouldMove ? "0" : "1" }}>
+                    <div id="skip" style={{ opacity: shouldMove ? "0" : "1" }} onClick={() => {
+                        handleIntroFinish();
+                        setTimeout(() => nav("/~"), 400);
+                    }}>
                         Skip <img alt="" src="/rightarrow.svg" className="rightarrow" />
-                    </Link>
+                    </div>
                     <div id="heading" style={{ transform: shouldMove ? "translate(-50vw, -200vh)" : "reset" }}>
                         <div id="header">
                             {isWritten && (

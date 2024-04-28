@@ -99,6 +99,10 @@ body {
     text-decoration: none;
 }
 
+#skip:hover {
+    cursor: pointer;
+}
+
 #stars {
     display: block;
     position: relative;
