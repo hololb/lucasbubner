@@ -66,21 +66,23 @@ function Router() {
 
     function serveRedirector() {
         // Redirect all requests to /serve/* to serve.bubner.me/*
-        const href = `https://serve.bubner.me/${location.pathname.split("/serve/")[1] ?? ""}${location.search}${location.hash}`;
+        const href = `https://serve.bubner.me/${location.pathname.split("/serve/")[1] ?? ""}${location.search}${
+            location.hash
+        }`;
         return (
-            <>
-                <div
-                    style={{
-                        height: "100vh",
-                        width: "100vw",
-                        color: "white",
-                        backgroundColor: "black",
-                    }}
-                >
-                    <meta httpEquiv="refresh" content={`0;url=${href}`} />
-                    <div style={{ padding: "12px" }}>Redirecting you to <a href={href} style={{ color: "rgb(59, 130, 246)" }}>{href}</a> ...</div>  
+            <div
+                style={{
+                    height: "100vh",
+                    width: "100vw",
+                    color: "white",
+                    backgroundColor: "black",
+                }}
+            >
+                <meta httpEquiv="refresh" content={`0;url=${href}`} />
+                <div style={{ position: "absolute", bottom: 0, padding: "12px" }}>
+                    Redirecting you to <a href={href} style={{ color: "rgb(59, 130, 246)" }}>{href}</a> <span id="autobuf">...</span>
                 </div>
-            </>
+            </div>
         );
     }
 

@@ -44,6 +44,22 @@ body::-webkit-scrollbar {
     width: 10px;
 }
 
+#autobuf {
+    animation: fadeCycle 1s infinite;
+}
+
+@keyframes fadeCycle {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
 .fade-in {
     opacity: reset;
     animation: fadeIn ease 1s;
