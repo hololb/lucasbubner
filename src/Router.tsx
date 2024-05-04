@@ -71,37 +71,14 @@ function Router() {
             <>
                 <div
                     style={{
-                        textAlign: "center",
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        height: "100dvh",
+                        height: "100vh",
+                        width: "100vw",
                         color: "white",
                         backgroundColor: "black",
                     }}
                 >
                     <meta httpEquiv="refresh" content={`0;url=${href}`} />
-                    <div style={{ fontSize: "1.5rem", fontWeight: "bold", margin: "5px" }}>Redirecting...</div>
-                    <br />
-                    <div>
-                        Hang tight. We&#39;re redirecting you to <span style={{ color: "rgb(59, 130, 246)" }}>{href}</span>.
-                    </div>
-                    <div>
-                        If you are not automatically redirected,{" "}
-                        <a style={{ color: "rgb(147, 197, 253)" }} href={href}>
-                            click here
-                        </a>
-                        .
-                    </div>
-                    <br />
-                    <small style={{ fontSize: "0.8rem", color: "gray" }}>
-                        Copyright ©{" "}
-                        <a style={{ color: "lightblue", textDecoration: "underline" }} href="https://bubner.me">
-                            Lucas Bubner
-                        </a>
-                        , 2024.
-                    </small>
+                    <div style={{ padding: "12px" }}>Redirecting you to <a href={href} style={{ color: "rgb(59, 130, 246)" }}>{href}</a> ...</div>  
                 </div>
             </>
         );
