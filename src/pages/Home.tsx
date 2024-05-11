@@ -68,7 +68,7 @@ function Home() {
                                 Hi!
                             </motion.h1>
                             <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2 }}>
-                                I'm <b>Lucas Bubner</b>, a <b>16-year-old</b> software developer. <br /> I am currently
+                                I'm <b>Lucas Bubner</b>, a <b>17-year-old</b> software developer. <br /> I am currently
                                 in high school as a<b> Year 11 student</b> passionate in the STEM/IT industries. This
                                 website is a showcase of my work and achievements.
                             </motion.p>
