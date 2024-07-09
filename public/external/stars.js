@@ -215,7 +215,7 @@ class Delaunay {
  * Updated to work nicer with ES6 and mobile 02/10/23, Lucas Bubner.
  */
 const canvas = document.getElementById("stars"),
-    particleCount = 30,
+    particleCount = 50,
     flareCount = 10,
     motion = 0.03,
     color = "#ed1c24",
