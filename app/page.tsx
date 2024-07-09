@@ -7,11 +7,11 @@ import Writer from "./components/Writer";
  */
 export default function Index() {
     return (
-        <>
+        <div>
             <Background />
-            <div className="w-full h-dvh flex items-center justify-center">
+            <div className="w-full h-dvh flex items-center justify-center absolute">
                 <Writer />
             </div>
-        </>
+        </div>
     );
 }

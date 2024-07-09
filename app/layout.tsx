@@ -22,7 +22,7 @@ export default function RootLayout({
                 <Script
                     async
                     data-pace-options='{"eventLag": false, "restartOnRequestAfter": false}'
-                    src="/pace.min.js"
+                    src="/external/pace.min.js"
                 />
                 <meta name="darkreader-lock" />
             </head>
