@@ -8,6 +8,7 @@ import WriterStatusProvider from "./components/landing/WriterStatus";
 import { RightArrow } from "./images";
 import Link from "next/link";
 import Next from "./components/landing/Next";
+import Slider from "./components/landing/Slider";
 
 /**
  * bubner.me
@@ -15,8 +16,8 @@ import Next from "./components/landing/Next";
  */
 export default function Index() {
     return (
-        <>
-            <Link href="/" className="absolute top-0 right-0 p-4 flex gap-2 text-[#727272] font-bold z-10">
+        <Slider>
+            <Link href="/~/home" className="absolute top-0 right-0 p-4 flex gap-2 text-[#727272] font-bold z-10">
                 Skip <Image src={RightArrow} alt="Right arrow" width={24} height={24} />
             </Link>
             <WriterStatusProvider>
@@ -27,6 +28,6 @@ export default function Index() {
                 </div>
                 <Next />
             </WriterStatusProvider>
-        </>
+        </Slider>
     );
 }

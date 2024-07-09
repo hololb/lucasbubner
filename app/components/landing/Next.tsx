@@ -15,19 +15,22 @@ export default function Next() {
     const nextPage = useRef<HTMLAnchorElement>(null);
     const writer = useContext(WriterStatus);
 
+    function next() {
+        nextPage.current?.click();
+    }
+
     useEffect(() => {
         if (!writer?.done || nextPage.current == null) {
             return;
         }
-        const next = nextPage.current;
-        window.addEventListener("wheel", () => next.click());
-        return () => window.removeEventListener("wheel", () => next.click());
+        window.addEventListener("wheel", next);
+        return () => window.removeEventListener("wheel", next);
     }, [writer?.done, nextPage]);
 
     if (!writer?.done) return;
 
     return (
-        <Link href="/" ref={nextPage}>
+        <Link href="/~" ref={nextPage}>
             <div className="absolute bottom-16 left-[50%] translate-x-[-50%] opacity-80">
                 <motion.div
                     initial={{ opacity: 0 }}

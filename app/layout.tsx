@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import AnimationWrapper from "./components/exit/AnimationWrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -38,7 +39,9 @@ export default function RootLayout({
                         </p>
                     </div>
                 </noscript>
-                {children}
+                <AnimationWrapper>
+                    {children}
+                </AnimationWrapper>
             </body>
         </html>
     );
