@@ -140,28 +140,30 @@ class Stars {
             }
         }
 
+        const onDeviceOrientation = (e: any) => {
+            this.mouse.x = this.canvas.clientWidth / 2 - ((e.gamma || 0) / 90) * (this.canvas.clientWidth / 2) * 2;
+            this.mouse.y = this.canvas.clientHeight / 2 - ((e.beta || 0) / 90) * (this.canvas.clientHeight / 2) * 2;
+        };
+
+        const onMouseMove = (e: any) => {
+            this.mouse.x = e.clientX;
+            this.mouse.y = e.clientY;
+        }
+
         // Motion mode
         if ("ontouchstart" in document.documentElement && window.DeviceOrientationEvent) {
-            window.addEventListener(
-                "deviceorientation",
-                (e) => {
-                    this.mouse.x =
-                        this.canvas.clientWidth / 2 - ((e.gamma || 0) / 90) * (this.canvas.clientWidth / 2) * 2;
-                    this.mouse.y =
-                        this.canvas.clientHeight / 2 - ((e.beta || 0) / 90) * (this.canvas.clientHeight / 2) * 2;
-                },
-                true
-            );
+            window.addEventListener("deviceorientation", onDeviceOrientation, true);
         } else {
             // Mouse move listener
-            document.body.addEventListener("mousemove", (e) => {
-                this.mouse.x = e.clientX;
-                this.mouse.y = e.clientY;
-            });
+            document.body.addEventListener("mousemove", onMouseMove);
         }
 
         const animLoop = () => {
-            if (this.destroyed) return;
+            if (this.destroyed) {
+                window.removeEventListener("deviceorientation", onDeviceOrientation);
+                document.body.removeEventListener("mousemove", onMouseMove);
+                return;
+            }
             /* @ts-expect-error requestAnimFrame polyfill */
             window.requestAnimFrame(animLoop);
             this.__render();
