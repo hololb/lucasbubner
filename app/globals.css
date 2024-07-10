@@ -2,6 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Ported styles from v2 */
+.__text-emp-yellow {
+    text-shadow: 2px 2px 2px rgba(255, 240, 103, 0.5);
+    background: linear-gradient(to bottom right, #fffd6f, #9c9200);
+}
+
+.__text-emp-orange {
+    text-shadow: 2px 2px 2px rgba(255, 173, 173, 0.5);
+    background: linear-gradient(to right, #c45f00, #ff9635);
+}
+
+.__text-emp-red {
+    text-shadow: 2px 2px 2px rgba(255, 173, 173, 0.5);
+    background: linear-gradient(to right, #e96d6d, #ff5252);
+}
+
+.__text-emp-yellow,
+.__text-emp-orange,
+.__text-emp-red {
+    line-height: 100%;
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    animation: __emp 3s ease-in-out infinite;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes __emp {
+    0% {
+        background-position: 100% 0;
+    }
+    50% {
+        background-position: 50% 50%;
+    }
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+/* PACE.js flash theme, red */
 .pace {
     -webkit-pointer-events: none;
     pointer-events: none;

@@ -27,6 +27,7 @@ export default function RootLayout({
                     async
                     data-pace-options='{"eventLag": false, "restartOnRequestAfter": false}'
                     src="/external/pace.min.js"
+                    strategy="beforeInteractive"
                 />
                 <meta name="darkreader-lock" />
             </head>
@@ -39,9 +40,7 @@ export default function RootLayout({
                         </p>
                     </div>
                 </noscript>
-                <AnimationWrapper>
-                    {children}
-                </AnimationWrapper>
+                <AnimationWrapper>{children}</AnimationWrapper>
             </body>
         </html>
     );

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useContext, useEffect, useRef } from "react";
-import { WriterStatus } from "./WriterStatus";
+import { TreeStatus } from "../TreeStatus";
 
 /**
  * Next page and scroll down arrow.
@@ -13,25 +13,25 @@ import { WriterStatus } from "./WriterStatus";
  */
 export default function Next() {
     const nextPage = useRef<HTMLAnchorElement>(null);
-    const writer = useContext(WriterStatus);
+    const writer = useContext(TreeStatus);
 
     function next() {
         nextPage.current?.click();
     }
 
     useEffect(() => {
-        if (!writer?.done || nextPage.current == null) {
+        if (!writer?.activityMet() || nextPage.current == null) {
             return;
         }
         window.addEventListener("wheel", next);
         return () => window.removeEventListener("wheel", next);
-    }, [writer?.done, nextPage]);
+    }, [writer, nextPage]);
 
-    if (!writer?.done) return;
+    if (!writer?.activityMet()) return;
 
     return (
-        <Link href="/~" ref={nextPage}>
-            <div className="absolute bottom-16 left-[50%] translate-x-[-50%] opacity-80">
+        <div className="absolute bottom-16 left-[50%] translate-x-[-50%] opacity-80">
+            <Link href="/~" ref={nextPage}>
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ y: [0, -30, 0], opacity: 1 }}
@@ -40,7 +40,7 @@ export default function Next() {
                 >
                     <Image src={DownArrow} alt="Down arrow" width={50} height={50} />
                 </motion.div>
-            </div>
-        </Link>
+            </Link>
+        </div>
     );
 }

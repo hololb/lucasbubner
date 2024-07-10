@@ -2,11 +2,8 @@
 
 import { useContext } from "react";
 import Typewriter from "typewriter-effect";
-import { WriterStatus } from "./WriterStatus";
 import { motion, useAnimation } from "framer-motion";
-import Link from "next/link";
-import Image from "next/image";
-import { DownArrow } from "@/app/images";
+import { TreeStatus } from "../TreeStatus";
 
 const shineVariants = {
     animate: {
@@ -32,11 +29,11 @@ const shineVariants = {
  * @author Lucas Bubner, 2024
  */
 export default function Writer() {
-    const writer = useContext(WriterStatus);
+    const writer = useContext(TreeStatus);
     const shineEffect = useAnimation();
 
     return (
-        <div className="text-center text-6xl/tight md:text-7xl/tight font-bold text-white">
+        <div className="text-center text-5xl/tight md:text-7xl/tight font-bold text-white">
             <noscript>
                 computational
                 <br /> brilliance.
@@ -56,7 +53,7 @@ export default function Writer() {
                             .typeString("computational<br>brilliance.")
                             .pauseFor(100)
                             .callFunction(() => {
-                                writer?.setDone(true);
+                                writer?.markDone();
                                 shineEffect.start("animate");
                             })
                             .start();

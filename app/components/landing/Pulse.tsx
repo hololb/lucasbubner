@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { WriterStatus } from "./WriterStatus";
+import { TreeStatus } from "../TreeStatus";
 import { useContext } from "react";
 
 /**
@@ -9,9 +9,9 @@ import { useContext } from "react";
  * @author Lucas Bubner, 2024
  */
 export default function Pulse() {
-    const writer = useContext(WriterStatus);
+    const writer = useContext(TreeStatus);
 
-    if (!writer?.done) return;
+    if (!writer?.activityMet()) return;
 
     return (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 3 }} className="absolute">

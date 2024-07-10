@@ -2,24 +2,23 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Script from "next/script";
-import { Stars } from "../../images";
-import { WriterStatus } from "./WriterStatus";
+import { TreeStatus } from "../TreeStatus";
 import { useContext } from "react";
+import { Stars } from "@/app/images";
+import StarsAnimation from "./stars/StarsAnimation";
 
 /**
  * Node and dots background.
  * @author Lucas Bubner, 2024
  */
 export default function Background() {
-    const writer = useContext(WriterStatus);
+    const writer = useContext(TreeStatus);
 
-    if (!writer?.done) return;
+    if (!writer?.activityMet()) return;
 
     return (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 3 }} className="absolute">
-            <canvas id="stars" className="absolute w-screen h-dvh -z-10" />
-            <Script src="/external/stars.js" />
+            <StarsAnimation />
             <Image
                 alt=""
                 src={Stars}
@@ -27,7 +26,7 @@ export default function Background() {
                 width={1920}
                 height={1080}
                 draggable={false}
-                className="opacity-25 w-screen h-dvh object-cover"
+                className="w-screen h-dvh object-cover"
             />
         </motion.div>
     );
