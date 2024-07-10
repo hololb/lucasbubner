@@ -1,4 +1,6 @@
+import Collarband from "../components/scrollway/Collarband";
 import DelayedBackground from "../components/scrollway/DelayedBackground";
+import ScrollWarning from "../components/scrollway/ScrollWarning";
 import UpReveal from "../components/scrollway/UpReveal";
 import { TreeStatusProvider } from "../components/TreeStatus";
 import { Stars } from "../images";
@@ -17,7 +19,8 @@ export default function Scrollway() {
                         </UpReveal>
                     </div>
                 </div>
-                <p>WIP</p>
+                <ScrollWarning />
+                <Collarband />
             </DelayedBackground>
         </TreeStatusProvider>
     );

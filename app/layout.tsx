@@ -31,7 +31,7 @@ export default function RootLayout({
                 />
                 <meta name="darkreader-lock" />
             </head>
-            <body className={`${inter.className} bg-black`}>
+            <body className={`${inter.className} bg-black overflow-x-hidden`}>
                 <noscript>
                     <div className="fixed bottom-0 w-screen h-9 bg-red-600 text-white font-bold flex items-center">
                         <p className="mx-3">

@@ -34,10 +34,6 @@ export default function Writer() {
 
     return (
         <div className="text-center text-5xl/tight md:text-7xl/tight font-bold text-white">
-            <noscript>
-                computational
-                <br /> brilliance.
-            </noscript>
             <motion.div
                 animate={shineEffect}
                 variants={shineVariants}
