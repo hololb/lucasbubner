@@ -27,7 +27,7 @@ export default function Scrollway() {
                 <Collarband />
                 <TreeLimited threshold={2}>
                     <div className="flex items-center justify-center mt-24 mb-12">
-                        <div className="text-center text-white font-extrabold text-2xl/snug md:text-4xl/snug">
+                        <div className="text-center text-white font-bold text-3xl/snug md:text-5xl/snug">
                             <UpReveal delay={0.8} onScroll>
                                 <span className="__text-emp-yellow">Nationally</span> recognised.
                             </UpReveal>
