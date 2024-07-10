@@ -3,7 +3,7 @@
 import { useContext } from "react";
 import Typewriter from "typewriter-effect";
 import { motion, useAnimation } from "framer-motion";
-import { TreeStatus } from "../TreeStatus";
+import { TreeStatus } from "../tree/TreeStatus";
 
 const shineVariants = {
     animate: {

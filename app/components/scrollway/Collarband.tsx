@@ -4,7 +4,7 @@ import { Bubner, Collar } from "@/app/images";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useContext, useEffect, useRef } from "react";
-import { TreeStatus } from "../TreeStatus";
+import { TreeStatus } from "../tree/TreeStatus";
 
 /**
  * Enclosing collars of the scrollway displayed on entering the viewport.
@@ -32,6 +32,7 @@ export default function Collarband() {
             }
         }
         window.addEventListener("resize", onResize);
+        onResize();
     }, []);
 
     return (
@@ -41,8 +42,8 @@ export default function Collarband() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1 }}
             >
-                <div ref={leftCollar} style={{ transform: `translateX(-${getTranslation(window.innerWidth)}px)` }}>
-                    <Image className="opacity-40" alt="" src={Collar} />
+                <div ref={leftCollar}>
+                    <Image draggable={false} className="opacity-40" alt="" src={Collar} />
                 </div>
             </motion.div>
             <motion.div
@@ -52,7 +53,7 @@ export default function Collarband() {
                 className="absolute left-[50%] translate-x-[-50%]"
             >
                 <motion.div animate={{ opacity: [1, 0.4, 1] }} transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}>
-                    <Image alt="Lucas Bubner" src={Bubner} />
+                    <Image draggable={false} alt="Lucas Bubner" src={Bubner} />
                 </motion.div>
             </motion.div>
             <motion.div
@@ -61,8 +62,8 @@ export default function Collarband() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1 }}
             >
-                <div ref={rightCollar} style={{ transform: `translateX(${getTranslation(window.innerWidth)}px)` }}>
-                    <Image className="opacity-40 rotate-180" alt="" src={Collar} />
+                <div ref={rightCollar}>
+                    <Image draggable={false} className="opacity-40 rotate-180" alt="" src={Collar} />
                 </div>
             </motion.div>
         </div>

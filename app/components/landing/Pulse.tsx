@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { TreeStatus } from "../TreeStatus";
+import { TreeStatus } from "../tree/TreeStatus";
 import { useContext } from "react";
 
 /**

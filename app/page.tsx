@@ -3,7 +3,7 @@ import Image from "next/image";
 import Background from "./components/landing/Background";
 import Pulse from "./components/landing/Pulse";
 import Writer from "./components/landing/Writer";
-import { TreeStatusProvider } from "./components/TreeStatus";
+import { TreeStatusProvider } from "./components/tree/TreeStatus";
 
 import { RightArrow, Stars } from "./images";
 import Link from "next/link";

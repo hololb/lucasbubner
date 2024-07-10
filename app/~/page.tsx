@@ -2,16 +2,19 @@ import Collarband from "../components/scrollway/Collarband";
 import DelayedBackground from "../components/scrollway/DelayedBackground";
 import ScrollWarning from "../components/scrollway/ScrollWarning";
 import UpReveal from "../components/scrollway/UpReveal";
-import TreeLimited from "../components/TreeLimited";
-import { TreeStatusProvider } from "../components/TreeStatus";
+import WavedBar from "../components/scrollway/WavedBar";
+import TreeLimited from "../components/tree/TreeLimited";
+import TreeLock from "../components/tree/TreeLock";
+import { TreeStatusProvider } from "../components/tree/TreeStatus";
 import { Stars } from "../images";
 
 export default function Scrollway() {
     return (
         <TreeStatusProvider>
             <DelayedBackground background={Stars}>
+                <TreeLock threshold={2} />
                 <div className="flex items-center justify-center h-svh">
-                    <div className="text-center text-white font-extrabold text-5xl/snug">
+                    <div className="text-center text-white font-extrabold text-3xl/snug md:text-5xl/snug">
                         <UpReveal delay={0.2} markTree>
                             I am a <span className="__text-emp-yellow">self-driven</span>,
                         </UpReveal>
@@ -23,8 +26,8 @@ export default function Scrollway() {
                 <ScrollWarning />
                 <Collarband />
                 <TreeLimited threshold={2}>
-                    <div className="flex items-center justify-center my-24">
-                        <div className="text-center text-white font-extrabold text-4xl/snug">
+                    <div className="flex items-center justify-center mt-24 mb-12">
+                        <div className="text-center text-white font-extrabold text-2xl/snug md:text-4xl/snug">
                             <UpReveal delay={0.8} onScroll>
                                 <span className="__text-emp-yellow">Nationally</span> recognised.
                             </UpReveal>
@@ -33,6 +36,8 @@ export default function Scrollway() {
                             </UpReveal>
                         </div>
                     </div>
+                    <WavedBar />
+
                 </TreeLimited>
             </DelayedBackground>
         </TreeStatusProvider>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useContext, useEffect, useRef } from "react";
-import { TreeStatus } from "../TreeStatus";
+import { TreeStatus } from "../tree/TreeStatus";
 import { StaticImageData } from "next/image";
 import { motion } from "framer-motion";
 import { RedLine } from "@/app/images";

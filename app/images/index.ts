@@ -5,6 +5,7 @@ import RedLine from "./holobg.png";
 import ScrollDown from "./mouse.svg";
 import Collar from "./collar.png";
 import Bubner from "./transparent.png";
+import SepBar from "./sep.png";
 
 export {
     Stars,
@@ -13,5 +14,6 @@ export {
     RedLine,
     ScrollDown,
     Collar,
-    Bubner
+    Bubner,
+    SepBar
 };

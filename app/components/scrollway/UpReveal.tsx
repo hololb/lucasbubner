@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useContext } from "react";
-import { TreeStatus } from "../TreeStatus";
+import { TreeStatus } from "../tree/TreeStatus";
 
 /**
  * Upwards revealing animation for wrapped elements.

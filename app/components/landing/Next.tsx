@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useContext, useEffect, useRef } from "react";
-import { TreeStatus } from "../TreeStatus";
+import { TreeStatus } from "../tree/TreeStatus";
 
 /**
  * Next page and scroll down arrow.
