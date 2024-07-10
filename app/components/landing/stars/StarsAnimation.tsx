@@ -59,6 +59,8 @@ export default function StarsAnimation() {
 
         const stars = new Stars(canvas.current, config);
         stars.init();
+
+        return () => stars.destroy();
     }, []);
 
     return <canvas ref={canvas} className="absolute w-screen h-dvh -z-10" />;

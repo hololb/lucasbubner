@@ -52,6 +52,7 @@ class Stars {
     links: Link[];
     particles: Particle[];
     flares: Flare[];
+    destroyed: boolean;
 
     constructor(canvas: HTMLCanvasElement, config: Config) {
         this.canvas = canvas;
@@ -69,6 +70,11 @@ class Stars {
         this.links = [];
         this.particles = [];
         this.flares = [];
+        this.destroyed = false;
+    }
+
+    destroy() {
+        this.destroyed = true;
     }
 
     init() {
@@ -155,6 +161,7 @@ class Stars {
         }
 
         const animLoop = () => {
+            if (this.destroyed) return;
             /* @ts-expect-error requestAnimFrame polyfill */
             window.requestAnimFrame(animLoop);
             this.__render();
@@ -184,7 +191,7 @@ class Stars {
         if (this.config.renderMesh) {
             // Render all lines
             this.context.beginPath();
-           for (let v = 0; v < this.vertices.length - 1; v++) {
+            for (let v = 0; v < this.vertices.length - 1; v++) {
                 // Splits the array into triplets
                 if ((v + 1) % 3 === 0) {
                     continue;

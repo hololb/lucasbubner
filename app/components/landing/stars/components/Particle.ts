@@ -22,7 +22,7 @@ export default class Particle {
         // Placeholder for neighbors
         this.neighbors = [];
     }
-    
+
     render() {
         if (!this.base.context) return;
         let pos = position(
