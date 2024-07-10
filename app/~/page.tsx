@@ -8,7 +8,7 @@ export default function Scrollway() {
         <TreeStatusProvider>
             <DelayedBackground background={Stars}>
                 <div className="flex items-center justify-center h-svh">
-                    <div className="text-center text-white font-extrabold text-5xl/tight">
+                    <div className="text-center text-white font-extrabold text-5xl/snug">
                         <UpReveal delay={0.2}>
                             I am a <span className="__text-emp-yellow">self-driven</span>,
                         </UpReveal>
@@ -17,73 +17,7 @@ export default function Scrollway() {
                         </UpReveal>
                     </div>
                 </div>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
-                <p>This is content!!!!!</p>
+                <p>WIP</p>
             </DelayedBackground>
         </TreeStatusProvider>
     );
