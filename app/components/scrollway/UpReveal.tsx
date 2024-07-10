@@ -8,15 +8,21 @@ import { TreeStatus } from "../TreeStatus";
  * Upwards revealing animation for wrapped elements.
  * @author Lucas Bubner, 2024
  */
-export default function UpReveal({ children, delay }: { children: React.ReactNode; delay: number }) {
+export default function UpReveal({ children, delay, onScroll, markTree }: { children: React.ReactNode; delay: number; onScroll?: boolean; markTree?: boolean; }) {
     const tree = useContext(TreeStatus);
+    
+    const props = onScroll ? {
+        whileInView: { opacity: 1, y: 0 },
+    } : {
+        animate: { opacity: 1, y: 0 },
+    }
 
     return (
         <motion.p
             initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
             transition={{ delay: delay, ease: "easeInOut", duration: 0.9 }}
-            onAnimationComplete={() => tree?.markDone()}
+            onAnimationComplete={() => markTree && tree?.markDone()}
+            {...props}
         >
             {children}
         </motion.p>

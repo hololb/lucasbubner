@@ -29,6 +29,7 @@ export default function DelayedBackground({
     }
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         window.addEventListener("resize", recalculateHeight);
         return () => window.removeEventListener("resize", recalculateHeight);
     }, []);

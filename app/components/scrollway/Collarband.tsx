@@ -34,14 +34,11 @@ export default function Collarband() {
         window.addEventListener("resize", onResize);
     }, []);
 
-    if (!tree?.requirementMet(2)) return;
-
     return (
-        <div className="transition-transform mt-10 flex relative">
+        <div className="transition-transform mt-10 flex relative" style={{ opacity: tree?.requirementMet(2) ? 1 : 0 }}>
             <motion.div
                 initial={{ opacity: 0, x: -800 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
                 transition={{ duration: 1 }}
             >
                 <div ref={leftCollar} style={{ transform: `translateX(-${getTranslation(window.innerWidth)}px)` }}>
@@ -51,7 +48,6 @@ export default function Collarband() {
             <motion.div
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.8 }}
                 className="absolute left-[50%] translate-x-[-50%]"
             >
@@ -63,7 +59,6 @@ export default function Collarband() {
                 className="absolute right-0"
                 initial={{ opacity: 1, x: 800 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
                 transition={{ duration: 1 }}
             >
                 <div ref={rightCollar} style={{ transform: `translateX(${getTranslation(window.innerWidth)}px)` }}>
