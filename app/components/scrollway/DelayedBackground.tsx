@@ -43,10 +43,10 @@ export default function DelayedBackground({
             transition={{ duration: 1 }}
         >
             {tree?.requirementMet(2) && (
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }} className="absolute -z-1">
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }} className="absolute -z-10">
                     <Image
                         ref={image}
-                        className="opacity-25 max-w-full"
+                        className="opacity-25 max-w-full -z-10"
                         draggable={false}
                         height={ref.current?.getBoundingClientRect().height}
                         src={RedLine}
