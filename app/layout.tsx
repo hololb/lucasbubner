@@ -20,6 +20,9 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    // While this is a SSR supported application layout, the reliance on JavaScript is still very high and not many things
+    // (if any) work without it, so we'll add a noscript warning then assume JavaScript is enabled from there onwards.
+    // The app could possibly be changed in the future to be more static rather than relying fully on JavaScript.
     return (
         <html lang="en">
             <head>
@@ -27,6 +30,7 @@ export default function RootLayout({
                     async
                     data-pace-options='{"eventLag": false, "restartOnRequestAfter": false}'
                     src="/external/pace.min.js"
+                    // Ensure we always have a loading bar before anything else
                     strategy="beforeInteractive"
                 />
                 <meta name="darkreader-lock" />

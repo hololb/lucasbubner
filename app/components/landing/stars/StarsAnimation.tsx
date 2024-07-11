@@ -57,6 +57,8 @@ export default function StarsAnimation() {
 
         if (!canvas.current) return;
 
+        // The animation calls are handled through the Stars class, which will internally use the context
+        // provided by the canvas element to draw the stars. We simply have to initialise and destroy it here.
         const stars = new Stars(canvas.current, config);
         stars.init();
 

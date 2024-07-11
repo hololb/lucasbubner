@@ -35,6 +35,12 @@ type Config = {
     noiseStrength: number;
 };
 
+/**
+ * Canvas renderer for the Stars animation.
+ * 
+ * Inspired by Steve Courtney's poster art for Celsius GS's Drifter - http://celsiusgs.com/drifter/posters.php
+ * by Cory Hughart - http://coryhughart.com
+ */
 class Stars {
     config: Config;
     canvas: HTMLCanvasElement;
@@ -48,6 +54,7 @@ class Stars {
     nPos: { x: number; y: number };
     points: number[][];
     triangles: number[][];
+    // Handled through Delaunay triangulation, will use any as it gets results directly from the API with no type information
     vertices: any[];
     links: Link[];
     particles: Particle[];
@@ -160,6 +167,7 @@ class Stars {
 
         const animLoop = () => {
             if (this.destroyed) {
+                // Clean up any listeners and stop rendering what is now unmounted from the DOM
                 window.removeEventListener("deviceorientation", onDeviceOrientation);
                 document.body.removeEventListener("mousemove", onMouseMove);
                 return;

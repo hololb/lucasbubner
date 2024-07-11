@@ -5,24 +5,24 @@ import Pulse from "./components/landing/Pulse";
 import Writer from "./components/landing/Writer";
 import { TreeStatusProvider } from "./components/tree/TreeStatus";
 
-import { RightArrow, Stars } from "./images";
+import { RedLine, RightArrow, Stars } from "./images";
 import Link from "next/link";
 import Next from "./components/landing/Next";
-import Slider from "./components/landing/Slider";
-import Head from "next/head";
+import ExitSlider from "./components/tree/ExitSlider";
+import ReactDOM from "react-dom";
 
 /**
- * bubner.me
+ * bubner.me main landing page.
  * @author Lucas Bubner, 2024
  */
 export default function Index() {
+    ReactDOM.preload(Stars.src, { as: "image" });
+    ReactDOM.preload(RedLine.src, { as: "image" });
+
     return (
-        <Slider>
-            <Head>
-                <link rel="preload" href={Stars.src} as="image" />
-            </Head>
-            <Link href="/~/home" className="absolute top-0 right-0 p-4 flex gap-2 text-[#727272] font-bold z-10">
-                Skip <Image src={RightArrow} alt="Right arrow" width={24} height={24} />
+        <ExitSlider exitDirection="up">
+            <Link href="/~/home" className="absolute top-0 right-0 p-4 flex gap-2 text-[#727272] font-bold z-10 underline">
+                Skip <Image src={RightArrow} alt="" width={24} height={24} />
             </Link>
             <TreeStatusProvider>
                 <Background />
@@ -32,6 +32,6 @@ export default function Index() {
                 </div>
                 <Next />
             </TreeStatusProvider>
-        </Slider>
+        </ExitSlider>
     );
 }

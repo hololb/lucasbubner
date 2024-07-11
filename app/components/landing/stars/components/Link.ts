@@ -1,6 +1,9 @@
 import Stars from "./stars";
 import { position, random } from "./util";
 
+/**
+ * Represents a link between two particles in the Stars animation.
+ */
 export default class Link {
     base: Stars;
     length: number;

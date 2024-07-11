@@ -14,6 +14,7 @@ import StarsAnimation from "./stars/StarsAnimation";
 export default function Background() {
     const writer = useContext(TreeStatus);
 
+    // Block render until the phrase has been fully written
     if (!writer?.activityMet()) return;
 
     return (

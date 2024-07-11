@@ -49,7 +49,12 @@ export default function Writer() {
                             .typeString("computational<br>brilliance.")
                             .pauseFor(100)
                             .callFunction(() => {
-                                writer?.markDone();
+                                // Check if unmounted
+                                if (!writer) return;
+                                // Increment the tree completion, which will allow the other components to start rendering
+                                // as they are checking for an activityMet requirement
+                                writer.markDone();
+                                // Shine effect is too distracting while it is writing, so we can start it once it's done
                                 shineEffect.start("animate");
                             })
                             .start();

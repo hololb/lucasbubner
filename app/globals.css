@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Ported styles from v2 */
+/* Ported styles from v2 below */
 .__text-emp-yellow {
     text-shadow: 2px 2px 2px rgba(255, 240, 103, 0.5);
     background: linear-gradient(to bottom right, #fffd6f, #9c9200);
@@ -39,18 +39,18 @@
     grid-template-areas: "text img";
 }
 
+.__scrollway-align-right {
+    text-align: right;
+    grid-template-columns: 1fr 50%;
+    grid-template-areas: "img text";
+}
+
 @media screen and (max-width: 1000px) {
     .__scrollway {
         grid-template-columns: auto;
         grid-template-rows: auto;
         grid-template-areas: "text" "img";
     }
-}
-
-.__scrollway-align-right {
-    text-align: right;
-    grid-template-columns: 1fr 50%;
-    grid-template-areas: "img text";
 }
 
 .__scrollway-imgs {

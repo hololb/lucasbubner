@@ -1,6 +1,9 @@
 import Stars from "./stars";
 import { position, random, sizeRatio } from "./util";
 
+/**
+ * Represents a flare particle rendered on the canvas in the Stars animation.
+ */
 export default class Flare {
     base: Stars;
     x: number;

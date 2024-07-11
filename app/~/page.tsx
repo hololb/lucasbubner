@@ -20,6 +20,7 @@ import {
     Next,
     Python,
     React,
+    RedLine,
     Stars,
     Tailwind,
     TypeScript,
@@ -27,8 +28,19 @@ import {
     Vercel,
 } from "../images";
 import Section from "../components/scrollway/Section";
+import Footer from "../components/scrollway/Footer";
+import ExitSlider from "../components/tree/ExitSlider";
+import ReactDOM from "react-dom";
 
+/**
+ * bubner.me scrollway page.
+ * @author Lucas Bubner, 2024
+ */
 export default function Scrollway() {
+    // Preload here again to ensure the browser gets it before the render
+    // as TreeStatus will take some time showing animations before the component with this image is mounted
+    ReactDOM.preload(RedLine.src, { as: "image" });
+
     const comments: JSX.Element[][] = [
         [
             <span key={0}>
@@ -134,43 +146,46 @@ export default function Scrollway() {
     ];
 
     return (
-        <TreeStatusProvider>
-            <DelayedBackground background={Stars}>
-                <TreeLock threshold={2} />
-                <div className="flex items-center justify-center h-svh">
-                    <div className="text-center text-white font-extrabold text-3xl/snug md:text-5xl/snug">
-                        <UpReveal delay={0.2} markTree>
-                            I am a <span className="__text-emp-yellow">self-driven</span>,
-                        </UpReveal>
-                        <UpReveal delay={0.8} markTree>
-                            <span className="__text-emp-yellow">young</span> software developer.
-                        </UpReveal>
-                    </div>
-                </div>
-                <ScrollWarning />
-                <Collarband />
-                <TreeLimited threshold={2}>
-                    <div className="flex items-center justify-center mt-24 mb-12">
-                        <div className="text-center text-white font-bold text-3xl/snug md:text-5xl/snug">
-                            <UpReveal delay={0.8} onScroll>
-                                <span className="__text-emp-yellow">Nationally</span> recognised.
+        <ExitSlider exitDirection="left">
+            <TreeStatusProvider>
+                <DelayedBackground background={Stars}>
+                    <TreeLock threshold={2} />
+                    <div className="flex items-center justify-center h-svh">
+                        <div className="text-center text-white font-extrabold text-3xl/snug md:text-5xl/snug">
+                            <UpReveal delay={0.2} markTree>
+                                I am a <span className="__text-emp-yellow">self-driven</span>,
                             </UpReveal>
-                            <UpReveal delay={1.3} onScroll>
-                                Academically <span className="__text-emp-yellow">accredited</span>.
+                            <UpReveal delay={0.8} markTree>
+                                <span className="__text-emp-yellow">young</span> software developer.
                             </UpReveal>
                         </div>
                     </div>
-                    <WavedBar />
-                    {[0, 1, 2, 3].map((idx) => (
-                        <Section
-                            key={idx}
-                            comments={comments[idx]}
-                            images={images[idx]}
-                            alignTextLeft={idx % 2 !== 0}
-                        />
-                    ))}
-                </TreeLimited>
-            </DelayedBackground>
-        </TreeStatusProvider>
+                    <ScrollWarning />
+                    <Collarband />
+                    <TreeLimited threshold={2}>
+                        <div className="flex items-center justify-center mt-24 mb-12">
+                            <div className="text-center text-white font-bold text-3xl/snug md:text-5xl/snug">
+                                <UpReveal delay={0.8} onScroll>
+                                    <span className="__text-emp-yellow">Nationally</span> recognised.
+                                </UpReveal>
+                                <UpReveal delay={1.3} onScroll>
+                                    Academically <span className="__text-emp-yellow">accredited</span>.
+                                </UpReveal>
+                            </div>
+                        </div>
+                        <WavedBar />
+                        {[0, 1, 2, 3].map((idx) => (
+                            <Section
+                                key={idx}
+                                comments={comments[idx]}
+                                images={images[idx]}
+                                alignTextLeft={idx % 2 !== 0}
+                            />
+                        ))}
+                        <Footer />
+                    </TreeLimited>
+                </DelayedBackground>
+            </TreeStatusProvider>
+        </ExitSlider>
     );
 }

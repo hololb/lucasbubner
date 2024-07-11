@@ -18,9 +18,11 @@ export default function ScrollWarning() {
             opacity: 1,
             y: 0,
             transition: {
+                // Don't want to show the warning immediately
                 delay: 3,
             },
         },
+        // Replication of the animate.css headShake animation
         headShake: {
             x: [0, -6, 5, -3, 2, 0],
             rotateY: [0, -9, 7, -5, 3, 0],
@@ -42,6 +44,7 @@ export default function ScrollWarning() {
     }, [controls]);
 
     function handleScroll() {
+        // Ensure the user scrolls down before removing the warning
         setScrolled(window.scrollY > 0);
     }
 
@@ -61,7 +64,7 @@ export default function ScrollWarning() {
                         variants={variants}
                     >
                         <motion.div>
-                            <Image src={ScrollDown} alt="Scroll down to see more" width={48} height={48} />
+                            <Image src={ScrollDown} alt="Scroll down to read more" width={48} height={48} />
                         </motion.div>
                     </motion.div>
                 )}

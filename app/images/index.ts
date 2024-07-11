@@ -23,6 +23,8 @@ import TypeScript from "./typescript.svg";
 import Python from "./pythonf.svg";
 import Java from "./java.png";
 
+// Static images for bubner.me
+
 export {
     Stars,
     RightArrow,

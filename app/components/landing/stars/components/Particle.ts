@@ -1,6 +1,9 @@
 import Stars from "./stars";
 import { position, random, sizeRatio } from "./util";
 
+/**
+ * Represents a particle rendered on the canvas in the Stars animation.
+ */
 export default class Particle {
     base: Stars;
     x: number;

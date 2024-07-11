@@ -16,14 +16,18 @@ export default function Collarband() {
     const rightCollar = useRef<HTMLDivElement>(null);
 
     function getTranslation(screenWidth: number) {
-        // Linear regression of the steps that existed in lucasbubner v2
-        // https://www.desmos.com/calculator/abobdln12v
+        // Linear regression of the manual media steps that existed in lucasbubner v2
+        // https://www.desmos.com/calculator/by5lfgrdiv
+        // Upper clamp at 1800 pixels where we can just sit on the edges of the screen and not have to worry
+        // about overlapping anymore
         if (screenWidth >= 1800) return 100;
+        // R^2=0.987
         return -0.4404511 * screenWidth + 1005.62;
     }
 
     useEffect(() => {
         function onResize() {
+            // Recalculate the distance needed between the collars every time the screen is resized
             if (leftCollar.current) {
                 leftCollar.current.style.transform = `translateX(-${getTranslation(window.innerWidth)}px)`;
             }
@@ -32,6 +36,7 @@ export default function Collarband() {
             }
         }
         window.addEventListener("resize", onResize);
+        // Run once on page load
         onResize();
     }, []);
 

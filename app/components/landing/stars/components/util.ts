@@ -1,3 +1,5 @@
+// Utilities used for the stars animation renderer
+
 export function noisePoint(i: number, nAngle: number, nRad: number) {
     let a = nAngle * i,
         cosA = Math.cos(a),

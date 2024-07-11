@@ -16,10 +16,12 @@ export default function Next() {
     const writer = useContext(TreeStatus);
 
     function next() {
+        // Allow users to scroll to activate the next page
         nextPage.current?.click();
     }
 
     useEffect(() => {
+        // Should not let them move to the next page if the writer is still writing
         if (!writer?.activityMet() || nextPage.current == null) {
             return;
         }
@@ -27,6 +29,7 @@ export default function Next() {
         return () => window.removeEventListener("wheel", next);
     }, [writer, nextPage]);
 
+    // Block render until the phrase has been fully written
     if (!writer?.activityMet()) return;
 
     return (
@@ -38,7 +41,7 @@ export default function Next() {
                     transition={{ y: { duration: 2, repeat: Infinity }, opacity: { duration: 5 } }}
                     className="pt-10 px-2"
                 >
-                    <Image src={DownArrow} alt="Down arrow" width={50} height={50} />
+                    <Image src={DownArrow} alt="Continue" width={50} height={50} />
                 </motion.div>
             </Link>
         </div>
