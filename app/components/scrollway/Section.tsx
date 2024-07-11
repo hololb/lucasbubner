@@ -2,6 +2,7 @@
 
 import { StaticImageData } from "next/image";
 import Image from "next/image";
+import UpReveal from "./UpReveal";
 
 /**
  * Scrollway text and image combo.
@@ -33,7 +34,9 @@ export default function Section({
             <div>
                 {comments.map((comment, index) => (
                     <div key={index} className="text-white text-2xl font-light ml-8 mt-3 p-4 leading-snug z-10">
-                        {comment}
+                        <UpReveal delay={index * 0.1} onScroll>
+                            {comment}
+                        </UpReveal>
                     </div>
                 ))}
             </div>
