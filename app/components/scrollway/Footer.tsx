@@ -26,7 +26,7 @@ export default function Footer() {
                 transition={{ delay: 1.4, duration: 1.2 }}
             >
                 <Link
-                    href="/~/home"
+                    href="/~/home?f"
                     // Ensure the default scroll behaviour is disabled, otherwise the exit animation will suddenly jump
                     // the page to the top and create a discontinuity
                     scroll={false}

@@ -21,7 +21,7 @@ export default function Index() {
 
     return (
         <ExitSlider exitDirection="up">
-            <Link href="/~/home" className="absolute top-0 right-0 p-4 flex gap-2 text-[#727272] font-bold z-10 underline">
+            <Link href="/~/home?f" className="absolute top-0 right-0 p-4 flex gap-2 text-[#727272] font-bold z-10 underline">
                 Skip <Image src={RightArrow} alt="" width={24} height={24} />
             </Link>
             <TreeStatusProvider>

@@ -22,6 +22,7 @@ import CSharp from "./cs.svg";
 import TypeScript from "./typescript.svg";
 import Python from "./pythonf.svg";
 import Java from "./java.png";
+import MainBackground from "./bg2.0b.png";
 
 // Static images for bubner.me
 
@@ -50,4 +51,5 @@ export {
     TypeScript,
     Python,
     Java,
+    MainBackground
 };
