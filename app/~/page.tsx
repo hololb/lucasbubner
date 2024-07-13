@@ -17,6 +17,7 @@ import {
     GitHub,
     iAwards,
     Java,
+    MainBackground,
     Next,
     Python,
     React,
@@ -40,6 +41,8 @@ export default function Scrollway() {
     // Preload here again to ensure the browser gets it before the render
     // as TreeStatus will take some time showing animations before the component with this image is mounted
     ReactDOM.preload(RedLine.src, { as: "image" });
+    // Preload for next page
+    ReactDOM.preload(MainBackground.src, { as: "image" });
 
     const comments: JSX.Element[][] = [
         [
