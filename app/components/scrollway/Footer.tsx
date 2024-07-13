@@ -34,7 +34,7 @@ export default function Footer() {
                 >
                     <span>Read more</span>
                     <motion.div
-                        initial={{ y: 3 }}
+                        initial={{ y: 2 }}
                         animate={{ x: [0, 10, 0] }}
                         transition={{ repeat: Infinity, duration: 1, ease: "easeInOut" }}
                     >

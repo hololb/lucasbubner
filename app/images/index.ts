@@ -23,6 +23,12 @@ import TypeScript from "./typescript.svg";
 import Python from "./pythonf.svg";
 import Java from "./java.png";
 import MainBackground from "./bg2.0b.png";
+import Star from "./star.svg";
+import Script from "./scr.svg";
+import Announce from "./annoc.svg";
+import At from "./at.svg";
+import Links from "./link.svg";
+import Profile from "./pfp.svg";
 
 // Static images for bubner.me
 
@@ -51,5 +57,11 @@ export {
     TypeScript,
     Python,
     Java,
-    MainBackground
+    MainBackground,
+    Star,
+    Script,
+    Announce,
+    At,
+    Links,
+    Profile,
 };
