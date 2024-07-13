@@ -1,6 +1,6 @@
 "use client";
 
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import Typewriter from "typewriter-effect";
 import { motion, useAnimation } from "framer-motion";
 import { TreeStatus } from "../tree/TreeStatus";
@@ -29,8 +29,15 @@ const shineVariants = {
  * @author Lucas Bubner, 2024
  */
 export default function Writer() {
+    const [shouldAnimate, setShouldAnimate] = useState(false);
     const writer = useContext(TreeStatus);
     const shineEffect = useAnimation();
+
+    useEffect(() => {
+        if (!shouldAnimate) return;
+        // Shine effect is too distracting while it is writing, so we can start it once it's done
+        shineEffect.start("animate");
+    }, [shouldAnimate, shineEffect]);
 
     return (
         <div className="text-center text-5xl/tight md:text-7xl/tight font-bold text-white">
@@ -49,13 +56,10 @@ export default function Writer() {
                             .typeString("computational<br>brilliance.")
                             .pauseFor(100)
                             .callFunction(() => {
-                                // Check if unmounted
-                                if (!writer) return;
                                 // Increment the tree completion, which will allow the other components to start rendering
                                 // as they are checking for an activityMet requirement
-                                writer.markDone();
-                                // Shine effect is too distracting while it is writing, so we can start it once it's done
-                                shineEffect.start("animate");
+                                writer?.markDone();
+                                setShouldAnimate(true);
                             })
                             .start();
                     }}

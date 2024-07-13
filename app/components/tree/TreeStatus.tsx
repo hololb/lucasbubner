@@ -1,12 +1,13 @@
 "use client";
 
-import { createContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 interface TreeStatusContextType {
     numCompleted: number;
     markDone: () => void;
     requirementMet: (reqs: number) => boolean;
     activityMet: () => boolean;
+    reset: () => void;
 }
 
 /**
@@ -20,11 +21,18 @@ export const TreeStatus = createContext<TreeStatusContextType | undefined>(undef
  * State provider for the dynamic completion of operations.
  * @author Lucas Bubner, 2024
  */
-export function TreeStatusProvider({ children }: { children: React.ReactNode }) {
+export function TreeStatusProvider({ children, resetRoot }: { children: React.ReactNode; resetRoot?: boolean }) {
     // Using a number state instead of a boolean one to allow for components to check
     // how many operations have been completed, rather than just if they have been completed,
     // as some elements may want to run just before the last operation is completed etc.
     const [numCompleted, _setDone] = useState(0);
+    const parent = useContext(TreeStatus);
+
+    useEffect(() => {
+        // Clearing the root TreeStatusProvider is useful in some cases where the child components will handle other state,
+        // such as the info pages where the fade-in is handled by the ContextualFadeIn component.
+        if (resetRoot) parent?.reset();
+    }, [resetRoot, parent]);
 
     function markDone() {
         _setDone((p) => p + 1);
@@ -39,8 +47,12 @@ export function TreeStatusProvider({ children }: { children: React.ReactNode }) 
         return numCompleted > 0;
     }
 
+    function reset() {
+        _setDone(0);
+    }
+
     return (
-        <TreeStatus.Provider value={{ numCompleted, markDone, requirementMet, activityMet }}>
+        <TreeStatus.Provider value={{ numCompleted, markDone, requirementMet, activityMet, reset }}>
             {children}
         </TreeStatus.Provider>
     );

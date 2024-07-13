@@ -147,7 +147,7 @@ export default function Scrollway() {
 
     return (
         <ExitSlider exitDirection="left">
-            <TreeStatusProvider>
+            <TreeStatusProvider resetRoot>
                 <DelayedBackground background={Stars}>
                     <TreeLock threshold={2} />
                     <div className="flex items-center justify-center h-svh">

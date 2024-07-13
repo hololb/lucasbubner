@@ -14,6 +14,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <ContextualFadeIn>
             <Image className="fixed -z-10 object-cover" src={MainBackground} alt="" fill quality={100} />
             {children}
+            <Link href="/~/accomplishments">To accom</Link>
+            <Link href="/~/home">To hom</Link>
         </ContextualFadeIn>
     );
 }
