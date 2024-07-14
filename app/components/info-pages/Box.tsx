@@ -74,17 +74,18 @@ export default function Box({ src, size, extrablur, href, small, entryDelay, chi
                 <Link
                     ref={root as RefObject<HTMLAnchorElement>}
                     draggable={false}
-                    className={`__box hover:shadow-[0_0_20px_#ed1c24]${small ? " min-h-fit rounded-3xl" : ""}`}
+                    className="__box hover:shadow-[0_0_20px_#ed1c24]"
+                    style={{ minHeight: small ? "fit-content" : "30vh" }}
                     href={href}
                     target="_blank"
                 >
                     {backgroundImage}
                     {children}
-                    <span className="mt-2 leading-[0] text-[0.8rem] font-semibold text-white">(click)</span>
                 </Link>
             ) : (
                 <div
-                    className={`__box${small ? " min-h-fit rounded-3xl" : ""}`}
+                    className="__box"
+                    style={{ minHeight: small ? "fit-content" : "30vh" }}
                     ref={root as RefObject<HTMLDivElement>}
                 >
                     {backgroundImage}

@@ -26,7 +26,6 @@
     text-align: center;
     margin: 20px;
     overflow-wrap: break-word;
-    min-height: 25vh;
     flex-basis: calc(25% - 40px);
     position: relative;
     z-index: 1;
@@ -41,10 +40,16 @@
 }
 
 .__box h1 {
-    font-size: 24px;
+    padding: 24px;
+    font-size: 32px;
     font-weight: bold;
     line-height: 2rem;
     color: #ffffff;
+}
+
+.__box p {
+    padding: 24px;
+    max-width: 500px;
 }
 
 .__box:hover {
@@ -56,6 +61,20 @@
     .__box {
         flex-basis: 75%;
     }
+}
+
+.__link {
+    color: #7ea1ff;
+    word-break: break-all;
+    text-decoration: underline;
+}
+
+.__clk {
+    margin: 0 0 10px;
+    line-height: 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #ffffff;
 }
 
 .__text-emp-yellow {
