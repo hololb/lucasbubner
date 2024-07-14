@@ -13,7 +13,7 @@ export default function Footer() {
     return (
         <div className="flex flex-col items-center justify-center h-1/2 mt-24 mb-12 gap-4">
             <motion.p
-                className="text-5xl font-extrabold text-white"
+                className="text-3xl sm:text-5xl font-extrabold text-white text-center"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: 1.2, duration: 0.6 }}
@@ -30,7 +30,7 @@ export default function Footer() {
                     // Ensure the default scroll behaviour is disabled, otherwise the exit animation will suddenly jump
                     // the page to the top and create a discontinuity
                     scroll={false}
-                    className="text-[#727272] font-bold z-10 text-2xl underline flex gap-2 items-center"
+                    className="text-[#727272] font-bold z-10 text-xl sm:text-2xl underline flex gap-2 items-center text-center"
                 >
                     <span>Read more</span>
                     <motion.div
