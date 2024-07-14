@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import AnimationWrapper from "./components/exit/AnimationWrapper";
 import { TreeStatusProvider } from "./components/tree/TreeStatus";
+import { IndicatorPositionProvider } from "./components/info-pages/PageIndicator";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,10 +25,14 @@ export default function RootLayout({
     // While this is a SSR supported application layout, the reliance on JavaScript is still very high and not many things
     // (if any) work without it, so we'll add a noscript warning then assume JavaScript is enabled from there onwards.
     // The app could possibly be changed in the future to be more static rather than relying fully on JavaScript.
-    
+
     // Note: A tree status provider is added here as the "root" tree layout, as it is used in the info pages to determine
     // if a fade animation is required between pages. Pages that need this context for themselves will define another tree status provider
     // as React will go to the nearest provider parent when looking for context.
+
+    // An additional provider not used in the main landing page but used in the ~/home etc. routes is here to ensure the context is not lost
+    // as AnimationWrapper clears context and state due to the nature of the workaround. If a way to have exit animations without this workaround
+    // is implemented, then this provider can be removed from here.
     return (
         <html lang="en">
             <head>
@@ -50,7 +55,9 @@ export default function RootLayout({
                     </div>
                 </noscript>
                 <TreeStatusProvider>
-                    <AnimationWrapper>{children}</AnimationWrapper>
+                    <IndicatorPositionProvider>
+                        <AnimationWrapper>{children}</AnimationWrapper>
+                    </IndicatorPositionProvider>
                 </TreeStatusProvider>
             </body>
         </html>

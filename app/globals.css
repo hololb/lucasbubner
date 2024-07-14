@@ -3,6 +3,61 @@
 @tailwind utilities;
 
 /* Ported styles from v2 below */
+.__box:before {
+    content: "";
+    position: absolute;
+    background: inherit;
+    z-index: -20;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: inset 0 0 2000px rgba(60, 60, 60, 0.66);
+    filter: blur(33px);
+}
+
+.__box {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 3rem;
+    padding: 12px;
+    text-align: center;
+    margin: 20px;
+    overflow-wrap: break-word;
+    min-height: 25vh;
+    flex-basis: calc(25% - 40px);
+    position: relative;
+    z-index: 1;
+    background: inherit;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+    transition: box-shadow 500ms, backdrop-filter 500ms;
+    color: #ffe2e2 !important;
+    text-shadow: 0 0 10px #000;
+}
+
+.__box h1 {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 2rem;
+    color: #ffffff;
+}
+
+.__box:hover {
+    box-shadow: inset 0 0 33px #505050, 0 0 24px #505050;
+    backdrop-filter: blur(15px);
+}
+
+@media only screen and (max-width: 1160px) {
+    .__box {
+        flex-basis: 75%;
+    }
+}
+
 .__text-emp-yellow {
     text-shadow: 2px 2px 2px rgba(255, 240, 103, 0.5);
     background: linear-gradient(to bottom right, #fffd6f, #9c9200);
@@ -154,7 +209,7 @@
     top: 0;
     right: 100%;
     width: 100%;
-    height: 2px;
+    height: 3px;
 }
 
 .pace .pace-progress-inner {
@@ -184,11 +239,11 @@
     border-top-color: #ee3148;
     border-left-color: #ee3148;
     border-radius: 10px;
-    -webkit-animation: pace-spinner 400ms linear infinite;
-    -moz-animation: pace-spinner 400ms linear infinite;
-    -ms-animation: pace-spinner 400ms linear infinite;
-    -o-animation: pace-spinner 400ms linear infinite;
-    animation: pace-spinner 400ms linear infinite;
+    -webkit-animation: pace-spinner 400ms ease-in-out infinite;
+    -moz-animation: pace-spinner 400ms ease-in-out infinite;
+    -ms-animation: pace-spinner 400ms ease-in-out infinite;
+    -o-animation: pace-spinner 400ms ease-in-out infinite;
+    animation: pace-spinner 400ms ease-in-out infinite;
 }
 
 @-webkit-keyframes pace-spinner {

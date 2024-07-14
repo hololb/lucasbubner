@@ -1,8 +1,10 @@
 import ContextualFadeIn from "@/app/components/info-pages/ContextualFadeIn";
-import PageIndicator from "@/app/components/info-pages/PageIndicator";
+import PageIndicator, { IndicatorPosition, IndicatorPositionProvider } from "@/app/components/info-pages/PageIndicator";
+import { TreeStatusProvider } from "@/app/components/tree/TreeStatus";
 import { Announce, At, Bubner, Links, MainBackground, Profile, Script, Star } from "@/app/images";
 import Image from "next/image";
 import Link from "next/link";
+import ReactDOM from "react-dom";
 
 /**
  * Common layout for the bubner.me information pages.
@@ -11,6 +13,14 @@ import Link from "next/link";
 export default function Layout({ children }: { children: React.ReactNode }) {
     // Titles are handled by the individual pages using metadata, this component will provide
     // the background and navbar which is common to all info pages.
+
+    ReactDOM.preload("/~/home", { as: "document" });
+    ReactDOM.preload("/~/accomplishments", { as: "document" });
+    ReactDOM.preload("/~/technology", { as: "document" });
+    ReactDOM.preload("/~/honourables", { as: "document" });
+    ReactDOM.preload("/~/projects", { as: "document" });
+    ReactDOM.preload("/~/links", { as: "document" });
+    ReactDOM.preload("/~/cv", { as: "document" });
 
     const hrefs = [
         { src: Bubner, alt: "Home", path: "/~/home" },
@@ -24,7 +34,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
     return (
         <ContextualFadeIn>
-            <Image className="fixed -z-10 object-cover" src={MainBackground} alt="" fill quality={100} />
+            <Image
+                className="-z-10 object-cover inset-0 w-full h-full fixed"
+                src={MainBackground}
+                alt=""
+                quality={100}
+            />
             <div className="z-10 fixed top-3 left-1/2 -translate-x-1/2 rounded-3xl m-auto bg-[#181a1b] flex flex-col items-center justify-center px-2 sm:px-6">
                 <div className="flex pt-2 gap-1 sm:gap-6">
                     {hrefs.map((href, i) => (
@@ -39,7 +54,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </div>
                 <PageIndicator />
             </div>
-            {children}
+            <div className="py-10" />
+            <div className="transition-[margin-top] bg-inherit relative flex flex-wrap justify-center items-center content-center min-h-[calc(100%-80px)]">
+                <TreeStatusProvider>{children}</TreeStatusProvider>
+            </div>
         </ContextualFadeIn>
     );
 }

@@ -4,7 +4,7 @@ import Link from "./Link";
 import Particle from "./Particle";
 import { noisePoint, position, random } from "./util";
 
-type Config = {
+interface Config {
     particleCount: number;
     flareCount: number;
     motion: number;
@@ -33,11 +33,11 @@ type Config = {
     randomMotion: boolean;
     noiseLength: number;
     noiseStrength: number;
-};
+}
 
 /**
  * Canvas renderer for the Stars animation.
- * 
+ *
  * Inspired by Steve Courtney's poster art for Celsius GS's Drifter - http://celsiusgs.com/drifter/posters.php
  * by Cory Hughart - http://coryhughart.com
  */
@@ -155,7 +155,7 @@ class Stars {
         const onMouseMove = (e: any) => {
             this.mouse.x = e.clientX;
             this.mouse.y = e.clientY;
-        }
+        };
 
         // Motion mode
         if ("ontouchstart" in document.documentElement && window.DeviceOrientationEvent) {

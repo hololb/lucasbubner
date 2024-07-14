@@ -17,6 +17,9 @@ export default function CV() {
             bodyRef.style.opacity = "0";
         }
         router.replace("/serve/cv");
+        return () => {
+            if (bodyRef) bodyRef.style.opacity = "1";
+        };
     }, [router]);
 
     return null;
