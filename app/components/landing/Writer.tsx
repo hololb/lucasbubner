@@ -40,7 +40,7 @@ export default function Writer() {
     }, [shouldAnimate, shineEffect]);
 
     return (
-        <div className="text-center text-5xl/tight md:text-7xl/tight font-bold text-white">
+        <div className="text-center text-4xl/tight md:text-7xl/tight font-bold text-white">
             <motion.div
                 animate={shineEffect}
                 variants={shineVariants}

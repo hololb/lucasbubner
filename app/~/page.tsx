@@ -154,7 +154,7 @@ export default function Scrollway() {
                 <DelayedBackground background={Stars}>
                     <TreeLock threshold={2} />
                     <div className="flex items-center justify-center h-svh">
-                        <div className="text-center text-white font-extrabold text-3xl/snug md:text-5xl/snug">
+                        <div className="text-center text-white font-extrabold text-2xl/snug md:text-5xl/snug">
                             <UpReveal delay={0.2} markTree>
                                 I am a <span className="__text-emp-yellow">self-driven</span>,
                             </UpReveal>
@@ -167,7 +167,7 @@ export default function Scrollway() {
                     <Collarband />
                     <TreeLimited threshold={2}>
                         <div className="flex items-center justify-center mt-24 mb-12">
-                            <div className="text-center text-white font-bold text-3xl/snug md:text-5xl/snug">
+                            <div className="text-center text-white font-bold text-2xl/snug md:text-5xl/snug">
                                 <UpReveal delay={0.8} onScroll>
                                     <span className="__text-emp-yellow">Nationally</span> recognised.
                                 </UpReveal>

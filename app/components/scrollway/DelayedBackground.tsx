@@ -46,7 +46,7 @@ export default function DelayedBackground({
     return (
         <motion.div
             ref={documentContainer}
-            className="bg-[length:200%]"
+            className="bg-[length:200%] overflow-x-hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
