@@ -4,8 +4,6 @@ import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { createContext, useContext, useEffect, useState } from "react";
 
-const BASE_OFFSET = 18;
-
 interface IndicatorPosition {
     indicatorPosition: number;
     setIndicatorPosition: (page: number) => void;
@@ -20,7 +18,7 @@ export const IndicatorPosition = createContext<IndicatorPosition | undefined>(un
  * @author Lucas Bubner, 2024
  */
 export function IndicatorPositionProvider({ children }: { children: React.ReactNode }) {
-    const [indicatorPosition, setIndicatorPosition] = useState(BASE_OFFSET);
+    const [indicatorPosition, setIndicatorPosition] = useState(0);
 
     return (
         <IndicatorPosition.Provider value={{ indicatorPosition, setIndicatorPosition }}>
@@ -40,19 +38,19 @@ export default function PageIndicator() {
 
     useEffect(() => {
         function calculatePosition() {
-            const offsets = [
-                { path: "/~/home", offset: 0 },
-                { path: "/~/accomplishments", offset: 80 },
-                { path: "/~/technology", offset: 160 },
-                { path: "/~/honourables", offset: 238 },
-                { path: "/~/projects", offset: 318 },
-                { path: "/~/links", offset: 398 },
-                { path: "/~/cv", offset: 476 },
+            const pathOrder = [
+                "/~/home",
+                "/~/accomplishments",
+                "/~/technology",
+                "/~/honourables",
+                "/~/projects",
+                "/~/links",
+                "/~/cv",
             ];
-            const windowScale = window.innerWidth > 640 ? 1 : 0.675;
-            const index = offsets.findIndex((o) => o.path === pathname);
+            const index = pathOrder.indexOf(pathname);
             if (index === -1) return;
-            setX(BASE_OFFSET + offsets[index].offset * windowScale);
+            // y=79x+19 and y=50x+17
+            setX(window.innerWidth >= 640 ? 79 * index + 19 : 50 * index + 17);
         }
         window.addEventListener("resize", calculatePosition);
         calculatePosition();

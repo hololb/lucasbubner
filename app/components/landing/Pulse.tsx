@@ -17,7 +17,7 @@ export default function Pulse() {
     return (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 3 }} className="absolute">
             <motion.div
-                className="size-[500px] bg-[radial-gradient(circle_at_center,_#ed1c24,_rgba(255,0,0,0)_75%)]"
+                className="h-[500px] bg-[radial-gradient(circle_at_center,_#ed1c24,_rgba(255,0,0,0)_75%)] w-screen sm:w-[500px]"
                 animate={{
                     scale: [0.7, 1, 0.7],
                     opacity: [0.15, 0.27, 0.15],
