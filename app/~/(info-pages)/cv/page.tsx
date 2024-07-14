@@ -7,7 +7,7 @@ import { useEffect } from "react";
  * Redirector component to unload the current boxes then smoothly transition over to the redirect.
  * @author Lucas Bubner, 2024
  */
-export default function Serve() {
+export default function CV() {
     const router = useRouter();
 
     useEffect(() => {
