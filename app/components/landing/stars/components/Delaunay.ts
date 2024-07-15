@@ -1,7 +1,7 @@
 /**
  * Delaunay triangulation library
  * Adapted from https://rawgit.com/ironwallaby/delaunay/master/delaunay.js
- * 
+ *
  * Types have been set to any to allow for easier integration with the existing codebase and confirmed functionality,
  * as this was originally written in JavaScript.
  */

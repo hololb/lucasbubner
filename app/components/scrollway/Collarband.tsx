@@ -57,7 +57,10 @@ export default function Collarband() {
                 transition={{ duration: 0.5, delay: 0.8 }}
                 className="absolute left-[50%] translate-x-[-50%]"
             >
-                <motion.div animate={{ opacity: [1, 0.4, 1] }} transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}>
+                <motion.div
+                    animate={{ opacity: [1, 0.4, 1] }}
+                    transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+                >
                     <Image draggable={false} alt="Lucas Bubner" src={Bubner} />
                 </motion.div>
             </motion.div>
