@@ -33,7 +33,7 @@ export default function Next() {
     if (!writer?.activityMet()) return;
 
     return (
-        <div className="absolute bottom-16 left-[50%] translate-x-[-50%] opacity-80">
+        <nav className="absolute bottom-16 left-[50%] translate-x-[-50%] opacity-80">
             <SoundLink href="/~" ref={nextPage}>
                 <motion.div
                     initial={{ opacity: 0 }}
@@ -44,6 +44,6 @@ export default function Next() {
                     <Image src={DownArrow} alt="Continue" width={50} height={50} />
                 </motion.div>
             </SoundLink>
-        </div>
+        </nav>
     );
 }

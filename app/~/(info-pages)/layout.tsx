@@ -60,11 +60,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <PageIndicator />
             </nav>
             <div className="py-10" />
-            <div className="transition-[margin-top] bg-inherit relative flex flex-wrap justify-center items-center content-center min-h-[calc(100%-80px)]">
-                <TreeStatusProvider>
-                    <main role="main">{children}</main>
-                </TreeStatusProvider>
-            </div>
+            <main
+                role="main"
+                className="transition-[margin-top] bg-inherit relative flex flex-wrap justify-center items-center content-center min-h-[calc(100%-80px)]"
+            >
+                <TreeStatusProvider>{children}</TreeStatusProvider>
+            </main>
         </ContextualFadeIn>
     );
 }
