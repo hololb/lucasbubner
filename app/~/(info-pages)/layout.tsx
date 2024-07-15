@@ -1,9 +1,10 @@
 import ContextualFadeIn from "@/app/components/info-pages/ContextualFadeIn";
-import PageIndicator, { IndicatorPosition, IndicatorPositionProvider } from "@/app/components/info-pages/PageIndicator";
+import DedupNavLinks from "@/app/components/info-pages/DedupNavLinks";
+import PageIndicator from "@/app/components/info-pages/PageIndicator";
+import SoundLink from "@/app/components/SoundLink";
 import { TreeStatusProvider } from "@/app/components/tree/TreeStatus";
 import { Announce, At, Bubner, Links, MainBackground, Profile, Script, Star } from "@/app/images";
 import Image from "next/image";
-import Link from "next/link";
 import ReactDOM from "react-dom";
 
 /**
@@ -20,7 +21,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     ReactDOM.preload("/~/honourables", { as: "document" });
     ReactDOM.preload("/~/projects", { as: "document" });
     ReactDOM.preload("/~/links", { as: "document" });
-    ReactDOM.preload("/~/cv", { as: "document" });
 
     const hrefs = [
         { src: Bubner, alt: "Home", path: "/~/home" },
@@ -43,13 +43,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div className="z-10 fixed top-3 left-1/2 -translate-x-1/2 rounded-3xl m-auto bg-[#181a1b] flex flex-col items-center justify-center px-2 sm:px-6">
                 <div className="flex pt-2 gap-0 sm:gap-6">
                     {hrefs.map((href, i) => (
-                        <Link
-                            key={i}
-                            href={href.path}
-                            className="w-[50px] h-[50px] sm:w-[55px] sm:h-[55px] hover:bg-[#26292b] transition-colors p-1 rounded-xl"
-                        >
-                            <Image src={href.src} alt={href.alt} width={55} height={55} />
-                        </Link>
+                        <DedupNavLinks key={i} path={href.path}>
+                            <SoundLink
+                                href={href.path}
+                                title={href.alt + " • " + href.path}
+                                className="w-[50px] h-[50px] sm:w-[55px] sm:h-[55px] hover:bg-[#26292b] transition-colors p-1 rounded-xl"
+                            >
+                                <Image src={href.src} alt={href.alt} width={55} height={55} />
+                            </SoundLink>
+                        </DedupNavLinks>
                     ))}
                 </div>
                 <PageIndicator />

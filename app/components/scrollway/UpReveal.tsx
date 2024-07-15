@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { TreeStatus } from "../tree/TreeStatus";
 
 /**
- * Upwards revealing animation for wrapped elements.
+ * Upwards revealing animation for wrapped elements with tree context and on scroll utilities.
  * @author Lucas Bubner, 2024
  */
 export default function UpReveal({

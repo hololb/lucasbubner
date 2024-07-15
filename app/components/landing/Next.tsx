@@ -3,9 +3,9 @@
 import { DownArrow } from "@/app/images";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
 import { useContext, useEffect, useRef } from "react";
 import { TreeStatus } from "../tree/TreeStatus";
+import SoundLink from "../SoundLink";
 
 /**
  * Next page and scroll down arrow.
@@ -34,7 +34,7 @@ export default function Next() {
 
     return (
         <div className="absolute bottom-16 left-[50%] translate-x-[-50%] opacity-80">
-            <Link href="/~" ref={nextPage}>
+            <SoundLink href="/~" ref={nextPage}>
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ y: [0, -30, 0], opacity: 1 }}
@@ -43,7 +43,7 @@ export default function Next() {
                 >
                     <Image src={DownArrow} alt="Continue" width={50} height={50} />
                 </motion.div>
-            </Link>
+            </SoundLink>
         </div>
     );
 }

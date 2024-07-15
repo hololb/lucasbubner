@@ -1,4 +1,5 @@
 import Box from "@/app/components/info-pages/Box";
+import entryIncrement from "@/app/components/info-pages/entry-timing";
 import { Bubner, BunyipBellower, FusionChess, RoboRegistry, RoboticsLogos, Serve } from "@/app/images";
 
 export const metadata = { title: "Lucas Bubner • Projects" };
@@ -8,9 +9,15 @@ export const metadata = { title: "Lucas Bubner • Projects" };
  * @author Lucas Bubner, 2024
  */
 export default function Projects() {
+    const iter = entryIncrement(0.2);
     return (
         <>
-            <Box src={RoboticsLogos} size={80} href="https://github.com/Murray-Bridge-Bunyips/BunyipsLib/">
+            <Box
+                src={RoboticsLogos}
+                size={80}
+                href="https://github.com/Murray-Bridge-Bunyips/BunyipsLib/"
+                entryDelay={iter.next().value}
+            >
                 <h1>BunyipsLib</h1>
                 <span className="__clk">(click)</span>
                 <p>
@@ -19,7 +26,13 @@ export default function Projects() {
                     <b>Free & Open Source</b>, <b>documentation-rich</b>, and <b>expansible</b>.
                 </p>
             </Box>
-            <Box src={RoboRegistry} size={45} href="https://github.com/bubner/RoboRegistry/" extrablur>
+            <Box
+                src={RoboRegistry}
+                size={45}
+                href="https://github.com/bubner/RoboRegistry/"
+                extrablur
+                entryDelay={iter.next().value}
+            >
                 <h1>RoboRegistry</h1>
                 <span className="__clk">(click)</span>
                 <p>
@@ -28,7 +41,12 @@ export default function Projects() {
                     with <b>Flask</b> and <b>Firebase</b>.
                 </p>
             </Box>
-            <Box src={BunyipBellower} size={45} href="https://github.com/Murray-Bridge-Bunyips/BunyipBellower">
+            <Box
+                src={BunyipBellower}
+                size={45}
+                href="https://github.com/Murray-Bridge-Bunyips/BunyipBellower"
+                entryDelay={iter.next().value}
+            >
                 <h1>Bunyip Bellower</h1>
                 <span className="__clk">(click)</span>
                 <p>
@@ -37,7 +55,7 @@ export default function Projects() {
                     for the Student &amp; Education category.
                 </p>
             </Box>
-            <Box src={Serve} size={85} href="https://serve.bubner.me">
+            <Box src={Serve} size={85} href="https://serve.bubner.me" entryDelay={iter.next().value}>
                 <h1>Serve</h1>
                 <span className="__clk">(click)</span>
                 <p>
@@ -46,7 +64,12 @@ export default function Projects() {
                     <b>prototypes</b>.
                 </p>
             </Box>
-            <Box src={FusionChess} size={40} href="https://github.com/bubner/FusionChess/">
+            <Box
+                src={FusionChess}
+                size={40}
+                href="https://github.com/bubner/FusionChess/"
+                entryDelay={iter.next().value}
+            >
                 <h1>Fusion Chess</h1>
                 <span className="__clk">(click)</span>
                 <p>
@@ -54,7 +77,13 @@ export default function Projects() {
                     <b> piece fusion</b> instead of capturing. Built in <b>React</b> and <b>TypeScript</b>.
                 </p>
             </Box>
-            <Box src={Bubner} size={45} href="https://github.com/bubner/lucasbubner/" extrablur>
+            <Box
+                src={Bubner}
+                size={45}
+                href="https://github.com/bubner/lucasbubner/"
+                extrablur
+                entryDelay={iter.next().value}
+            >
                 <h1>lucasbubner v2.1</h1>
                 <span className="__clk">(click)</span>
                 <p>

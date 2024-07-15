@@ -3,7 +3,7 @@
 import { RightArrow } from "@/app/images";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
+import SoundLink from "../SoundLink";
 
 /**
  * Footer element for the scrollway.
@@ -25,22 +25,21 @@ export default function Footer() {
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: 1.4, duration: 1.2 }}
             >
-                <Link
+                <SoundLink
                     href="/~/home"
                     // Ensure the default scroll behaviour is disabled, otherwise the exit animation will suddenly jump
                     // the page to the top and create a discontinuity
                     scroll={false}
-                    className="text-[#727272] font-bold z-10 text-xl sm:text-2xl underline flex gap-2 items-center text-center"
+                    className="text-[#727272] font-bold z-10 text-xl sm:text-2xl flex gap-2 items-center text-center bg-black/50 px-3 py-2 rounded-xl"
                 >
                     <span>Read more</span>
                     <motion.div
-                        initial={{ y: 2 }}
                         animate={{ x: [0, 10, 0] }}
                         transition={{ repeat: Infinity, duration: 1, ease: "easeInOut" }}
                     >
                         <Image src={RightArrow} width={32} alt="" />
                     </motion.div>
-                </Link>
+                </SoundLink>
             </motion.div>
         </div>
     );

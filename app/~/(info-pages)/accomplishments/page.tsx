@@ -1,4 +1,5 @@
 import Box from "@/app/components/info-pages/Box";
+import entryIncrement from "@/app/components/info-pages/entry-timing";
 import { Academics, Bars, Bunyips, Tag, Trophy, YellowStar } from "@/app/images";
 
 export const metadata = { title: "Lucas Bubner • Accomplishments" };
@@ -8,9 +9,10 @@ export const metadata = { title: "Lucas Bubner • Accomplishments" };
  * @author Lucas Bubner, 2024
  */
 export default function Accomplishments() {
+    const iter = entryIncrement(0.2);
     return (
         <>
-            <Box src={YellowStar} size={33}>
+            <Box src={YellowStar} size={33} entryDelay={iter.next().value}>
                 <h1>My accomplishments</h1>
                 <p>
                     Accredited <b>self-motivation</b> to learn complex topics by intuition; shown levels of{" "}
@@ -19,7 +21,7 @@ export default function Accomplishments() {
                     iAwards SA/NT 2023.
                 </p>
             </Box>
-            <Box src={Trophy} size={45}>
+            <Box src={Trophy} size={45} entryDelay={iter.next().value}>
                 <h1>What I'm proud of</h1>
                 <p>
                     <b>Development</b> and continuous integration of <b>industry-standard</b> applications using{" "}
@@ -28,7 +30,7 @@ export default function Accomplishments() {
                     <b>recognised by the AIIA</b> at the 2023 iAwards.
                 </p>
             </Box>
-            <Box src={Bunyips} size={45}>
+            <Box src={Bunyips} size={45} entryDelay={iter.next().value}>
                 <h1>Murray Bridge Bunyips</h1>
                 <p>
                     Developed <b>team management</b>, <b>leadership</b>, and <b>software development</b> skills through
@@ -37,7 +39,7 @@ export default function Accomplishments() {
                     <b>computer vision</b>, and <b>autonomous operation.</b>
                 </p>
             </Box>
-            <Box src={Academics} size={85}>
+            <Box src={Academics} size={85} entryDelay={iter.next().value}>
                 <h1>Academics</h1>
                 <p>
                     <b>High-achieving</b> student and <b>multi-year</b> Dux at Murray Bridge High School, awarded for
@@ -46,7 +48,7 @@ export default function Accomplishments() {
                     <b>enterprise implementations</b>.
                 </p>
             </Box>
-            <Box src={Tag} size={50}>
+            <Box src={Tag} size={50} entryDelay={iter.next().value}>
                 <h1>Programming</h1>
                 <p>
                     Knowledgeable in <b>multiple</b> programming languages across <b>web development</b>,{" "}
@@ -56,7 +58,7 @@ export default function Accomplishments() {
                     for continuous improvement.
                 </p>
             </Box>
-            <Box src={Bars} size={66}>
+            <Box src={Bars} size={66} entryDelay={iter.next().value}>
                 <h1>Capabilities</h1>
                 <p>
                     Able to work in a <b>high-stress</b> environment, while producing intellectual property to which

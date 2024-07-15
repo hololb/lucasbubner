@@ -1,4 +1,5 @@
 import Box from "@/app/components/info-pages/Box";
+import entryIncrement from "@/app/components/info-pages/entry-timing";
 import { Bunyips, Harvard, iAwards, MBHS, RoboRoos } from "@/app/images";
 import Link from "next/link";
 
@@ -9,9 +10,10 @@ export const metadata = { title: "Lucas Bubner • Honourables" };
  * @author Lucas Bubner, 2024
  */
 export default function Honourables() {
+    const iter = entryIncrement(0.2);
     return (
         <>
-            <Box src={iAwards} size={50}>
+            <Box src={iAwards} size={50} entryDelay={iter.next().value}>
                 <h1>SA/NT iAwards Winner</h1>
                 <p>
                     <b>Australian Information Industry Association</b> <br /> <b>Winner</b> of the 2023 SA/NT Student
@@ -26,7 +28,7 @@ export default function Honourables() {
                     </Link>
                 </p>
             </Box>
-            <Box src={Harvard} size={40} extrablur>
+            <Box src={Harvard} size={40} extrablur entryDelay={iter.next().value}>
                 <h1>CS50 Certificate</h1>
                 <p>
                     <b>CS50's Introduction to Computer Science Certificate</b> <br /> Attained in
@@ -41,7 +43,7 @@ export default function Honourables() {
                     </Link>
                 </p>
             </Box>
-            <Box src={iAwards} size={50}>
+            <Box src={iAwards} size={50} entryDelay={iter.next().value}>
                 <h1>National iAwards Merit</h1>
                 <p>
                     <b>Australian Information Industry Association</b> <br /> <b>Merit recipient</b> of the 2023 Student
@@ -57,7 +59,7 @@ export default function Honourables() {
                     </Link>
                 </p>
             </Box>
-            <Box src={MBHS} size={70}>
+            <Box src={MBHS} size={70} entryDelay={iter.next().value}>
                 <h1>Academic Excellence</h1>
                 <p>
                     <b>Murray Bridge High School</b> <br /> <b>Multi-year</b> Dux student at MBHS; highest achieving
@@ -65,7 +67,7 @@ export default function Honourables() {
                     <b> Specialist and Methods Mathematics</b>, <b>Physics</b>, and <b>Digital Technology</b>.
                 </p>
             </Box>
-            <Box src={Bunyips} size={45}>
+            <Box src={Bunyips} size={45} entryDelay={iter.next().value}>
                 <h1>MBHS Robotics Captain</h1>
                 <p>
                     <b>May 2022 - Present</b> <br /> Club captain of the <b>FIRST Tech Challenge</b> MBHS Student
@@ -81,7 +83,7 @@ export default function Honourables() {
                     </Link>
                 </p>
             </Box>
-            <Box src={RoboRoos} size={45}>
+            <Box src={RoboRoos} size={45} entryDelay={iter.next().value}>
                 <h1>RoboRoos FRC Student</h1>
                 <p>
                     <b>2024 CRESCENDO</b> <br />

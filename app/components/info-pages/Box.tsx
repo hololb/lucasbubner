@@ -2,18 +2,18 @@
 
 import { StaticImageData } from "next/image";
 import Image from "next/image";
-import Link from "next/link";
-import { RefObject, useContext, useEffect, useRef, useState } from "react";
-import { TreeStatus } from "../tree/TreeStatus";
-import { motion, useAnimation } from "framer-motion";
+import { RefObject, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import SoundLink from "../SoundLink";
+import useSound from "use-sound";
 
 interface BoxProps {
-    src: StaticImageData;
+    src?: StaticImageData;
     size: number;
     extrablur?: boolean;
     href?: string;
     small?: boolean;
-    entryDelay?: number;
+    entryDelay?: number | void;
     children: React.ReactNode;
 }
 
@@ -21,7 +21,17 @@ interface BoxProps {
  * An information box with a background image and animation.
  * @author Lucas Bubner, 2024
  */
-export default function Box({ src, size, extrablur, href, small, entryDelay, children }: BoxProps) {
+export default function Box({
+    src,
+    size,
+    extrablur,
+    href,
+    small,
+    entryDelay,
+    children,
+    className,
+}: BoxProps & { className?: string }) {
+    const [playAppearSound] = useSound("/sounds/tap.wav");
     const root = useRef<HTMLElement>(null);
     const img = useRef<HTMLImageElement>(null);
 
@@ -45,6 +55,9 @@ export default function Box({ src, size, extrablur, href, small, entryDelay, chi
         rootRef.addEventListener("mouseover", increaseBlur);
         rootRef.addEventListener("mouseout", decreaseBlur);
 
+        // Call at least once to set initial state
+        decreaseBlur();
+
         return () => {
             rootRef?.removeEventListener("mouseover", increaseBlur);
             rootRef?.removeEventListener("mouseout", decreaseBlur);
@@ -57,7 +70,7 @@ export default function Box({ src, size, extrablur, href, small, entryDelay, chi
                 ref={img}
                 alt=""
                 draggable={false}
-                src={src}
+                src={src!}
                 className="h-auto relative top-1/2 left-1/2 -translate-x-1/2 transition-[filter] duration-500"
                 style={{ width: `${size}%` }}
             />
@@ -66,12 +79,14 @@ export default function Box({ src, size, extrablur, href, small, entryDelay, chi
 
     return (
         <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: entryDelay || 0, type: "spring" }}
+            transition={{ delay: entryDelay || 0, type: "spring", damping: 20, stiffness: 200 }}
+            onAnimationComplete={() => playAppearSound()}
+            className={className}
         >
             {href ? (
-                <Link
+                <SoundLink
                     ref={root as RefObject<HTMLAnchorElement>}
                     draggable={false}
                     className="__box hover:shadow-[0_0_20px_#ed1c24]"
@@ -79,16 +94,16 @@ export default function Box({ src, size, extrablur, href, small, entryDelay, chi
                     href={href}
                     target="_blank"
                 >
-                    {backgroundImage}
+                    {src && backgroundImage}
                     {children}
-                </Link>
+                </SoundLink>
             ) : (
                 <div
                     className="__box"
                     style={{ minHeight: small ? "fit-content" : "30vh" }}
                     ref={root as RefObject<HTMLDivElement>}
                 >
-                    {backgroundImage}
+                    {src && backgroundImage}
                     {children}
                 </div>
             )}

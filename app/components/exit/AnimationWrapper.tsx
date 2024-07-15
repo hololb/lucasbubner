@@ -14,7 +14,7 @@ export default function AnimationWrapper({ children }: { children: React.ReactNo
     // During this re-evaluation, the `<FrozenRoute />` Component also gets updated with the new route components.
     return (
         <AnimatePresence mode="wait">
-            <motion.div key={pathname}>
+            <motion.div key={pathname} id="bubner.me">
                 <FrozenRoute>{children}</FrozenRoute>
             </motion.div>
         </AnimatePresence>
