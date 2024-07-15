@@ -56,6 +56,12 @@ import Instagram from "./insta.svg";
 import Replit from "./replit.png";
 import GitHubBubner from "./atbubner.png";
 import LinkedInBubner from "./atme.png";
+import JavaCup from "./javacup.png";
+import JavaScript from "./javascript.png";
+import HTMLBadge from "./htmlbadge.png";
+import CPlusPlus from "./cplusplus.svg";
+import Kotlin from "./kotlin.svg";
+import C from "./c.png";
 
 // Static images for bubner.me
 
@@ -118,4 +124,10 @@ export {
     Replit,
     GitHubBubner,
     LinkedInBubner,
+    JavaCup,
+    JavaScript,
+    HTMLBadge,
+    CPlusPlus,
+    Kotlin,
+    C
 };

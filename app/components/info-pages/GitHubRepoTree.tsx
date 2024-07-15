@@ -1,8 +1,21 @@
 "use client";
 
+import {
+    CPlusPlus,
+    CSharp,
+    HTMLBadge,
+    JavaCup,
+    JavaScript,
+    Kotlin,
+    Python,
+    Tag,
+    TypeScript,
+    Unity,
+} from "@/app/images";
 import { motion } from "framer-motion";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
-import { memo, useEffect, useMemo, useRef, useState } from "react";
+import { memo, useEffect, useMemo, useState } from "react";
 import { v4 } from "uuid";
 
 interface RepoInfo {
@@ -15,6 +28,23 @@ interface ActiveItem {
     info: RepoInfo;
     uuid: string;
 }
+
+/**
+ * Maps GitHub provided language names to icons.
+ */
+const imageMap: Map<string, StaticImageData> = new Map([
+    ["Python", Python],
+    // Jinja logo is too dark, can just use Python as it is a Python tool
+    ["Jinja", Python],
+    ["Java", JavaCup],
+    ["TypeScript", TypeScript],
+    ["C# (Unity)", Unity],
+    ["JavaScript", JavaScript],
+    ["HTML", HTMLBadge],
+    ["C++", CPlusPlus],
+    ["C#", CSharp],
+    ["Kotlin", Kotlin],
+]);
 
 /**
  * Return all public repos associated with @bubner and parse to format <user>/<repo> and with the mainly used language.
@@ -73,7 +103,10 @@ const Item = memo(({ info, callback }: { info: RepoInfo; callback: () => void })
             onAnimationComplete={callback}
         >
             <span className="text-blue-500 underline">{info.name}</span>
-            <div className="text-white"><span className="text-white">{info.language}</span></div>
+            <div className="flex gap-2 items-center justify-center">
+                <Image src={imageMap.get(info.language) || Tag} width={20} height={20} alt={info.language} />
+                <span className="text-white">{info.language}</span>
+            </div>
         </motion.div>
     </Link>
 ));
