@@ -1,13 +1,15 @@
 import Animated from "@/app/components/info-pages/Animated";
 import Box from "@/app/components/info-pages/Box";
 import ExpandingLine from "@/app/components/info-pages/ExpandingLine";
-import GitHubRepoTree from "@/app/components/info-pages/GitHubRepoTree";
 import MinBox from "@/app/components/info-pages/MinBox";
 import SoundLink from "@/app/components/SoundLink";
 import { Bubner, Profile } from "@/app/images";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 
 export const metadata = { title: "Lucas Bubner • Home" };
+
+const GitHubRepoTree = dynamic(() => import("@/app/components/info-pages/GitHubRepoTree"), { ssr: false });
 
 /**
  * Home page.
@@ -17,7 +19,7 @@ export default function Home() {
     return (
         <div className="flex flex-col">
             <MinBox
-                initial={{ opacity: 0, y: "100%" }}
+                initial={{ opacity: 0, y: "-100%" }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 2, delay: 0.3 }}
             >
