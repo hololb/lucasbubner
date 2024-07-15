@@ -4,12 +4,12 @@ import ExpandingLine from "@/app/components/info-pages/ExpandingLine";
 import MinBox from "@/app/components/info-pages/MinBox";
 import SoundLink from "@/app/components/SoundLink";
 import { Bubner, Profile } from "@/app/images";
-import dynamic from "next/dynamic";
 import Image from "next/image";
+import { lazy, Suspense } from "react";
 
 export const metadata = { title: "Lucas Bubner • Home" };
 
-const GitHubRepoTree = dynamic(() => import("@/app/components/info-pages/GitHubRepoTree"), { ssr: false });
+const GitHubRepoTree = lazy(() => import("@/app/components/info-pages/GitHubRepoTree"));
 
 /**
  * Home page.
@@ -38,7 +38,16 @@ export default function Home() {
                     </SoundLink>
                 </div>
             </MinBox>
-            <GitHubRepoTree />
+            <Animated
+                className="__box"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 2, duration: 1 }}
+            >
+                <Suspense fallback={<p className="text-gray-500 !p-0">Loading...</p>}>
+                    <GitHubRepoTree />
+                </Suspense>
+            </Animated>
             <Animated
                 className="md:flex items-center justify-center"
                 initial={{ opacity: 0 }}
