@@ -22,11 +22,7 @@ export default function Links() {
                     </h1>
                     <span className="__clk">(click)</span>
                     <p className="small">
-                        My software projects of over{" "}
-                        <b className="__text-emp-red">
-                            <PublicRepoCount />
-                        </b>{" "}
-                        repositories.
+                        <PublicRepoCount />
                     </p>
                 </Box>
                 <Box src={WakaTime} size={50} href="https://wakatime.com/@bubner" entryDelay={iter.next().value}>
