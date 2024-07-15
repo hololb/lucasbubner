@@ -21,20 +21,22 @@ export default function Index() {
 
     return (
         <ExitSlider exitDirection="up">
-            <SoundLink
-                href="/~/home"
-                className="absolute top-0 right-0 m-3 p-2 flex gap-2 text-[#727272] font-bold z-10 bg-black/50 rounded-xl"
-            >
-                Skip <Image src={RightArrow} alt="" width={24} height={24} />
-            </SoundLink>
-            <TreeStatusProvider resetRoot>
-                <Background />
-                <div className="w-full h-dvh flex items-center flex-col justify-center absolute">
-                    <Pulse />
-                    <Writer />
-                </div>
-                <Next />
-            </TreeStatusProvider>
+            <main role="main">
+                <SoundLink
+                    href="/~/home"
+                    className="absolute top-0 right-0 m-3 p-2 flex gap-2 text-[#727272] font-bold z-10 bg-black/50 rounded-xl"
+                >
+                    Skip <Image src={RightArrow} alt="" width={24} height={24} />
+                </SoundLink>
+                <TreeStatusProvider resetRoot>
+                    <Background />
+                    <div className="w-full h-dvh flex items-center flex-col justify-center absolute">
+                        <Pulse />
+                        <Writer />
+                    </div>
+                    <Next />
+                </TreeStatusProvider>
+            </main>
         </ExitSlider>
     );
 }

@@ -153,40 +153,42 @@ export default function Scrollway() {
             <TreeStatusProvider resetRoot>
                 <DelayedBackground background={Stars}>
                     <TreeLock threshold={2} />
-                    <div className="flex items-center justify-center h-svh">
-                        <div className="text-center text-white font-extrabold text-2xl/snug md:text-5xl/snug">
-                            <UpReveal delay={0.2} markTree>
-                                I am a <span className="__text-emp-yellow">self-driven</span>,
-                            </UpReveal>
-                            <UpReveal delay={0.8} markTree>
-                                <span className="__text-emp-yellow">young</span> software developer.
-                            </UpReveal>
-                        </div>
-                    </div>
-                    <ScrollWarning />
-                    <Collarband />
-                    <TreeLimited threshold={2}>
-                        <div className="flex items-center justify-center mt-24 mb-12">
-                            <div className="text-center text-white font-bold text-2xl/snug md:text-5xl/snug">
-                                <UpReveal delay={0.8} onScroll>
-                                    <span className="__text-emp-yellow">Nationally</span> recognised.
+                    <main role="main">
+                        <div className="flex items-center justify-center h-svh">
+                            <div className="text-center text-white font-extrabold text-2xl/snug md:text-5xl/snug">
+                                <UpReveal delay={0.2} markTree>
+                                    I am a <span className="__text-emp-yellow">self-driven</span>,
                                 </UpReveal>
-                                <UpReveal delay={1.3} onScroll>
-                                    Academically <span className="__text-emp-yellow">accredited</span>.
+                                <UpReveal delay={0.8} markTree>
+                                    <span className="__text-emp-yellow">young</span> software developer.
                                 </UpReveal>
                             </div>
                         </div>
-                        <WavedBar />
-                        {[0, 1, 2, 3].map((idx) => (
-                            <Section
-                                key={idx}
-                                comments={comments[idx]}
-                                images={images[idx]}
-                                alignTextLeft={idx % 2 !== 0}
-                            />
-                        ))}
-                        <Footer />
-                    </TreeLimited>
+                        <ScrollWarning />
+                        <Collarband />
+                        <TreeLimited threshold={2}>
+                            <div className="flex items-center justify-center mt-24 mb-12">
+                                <div className="text-center text-white font-bold text-2xl/snug md:text-5xl/snug">
+                                    <UpReveal delay={0.8} onScroll>
+                                        <span className="__text-emp-yellow">Nationally</span> recognised.
+                                    </UpReveal>
+                                    <UpReveal delay={1.3} onScroll>
+                                        Academically <span className="__text-emp-yellow">accredited</span>.
+                                    </UpReveal>
+                                </div>
+                            </div>
+                            <WavedBar />
+                            {[0, 1, 2, 3].map((idx) => (
+                                <Section
+                                    key={idx}
+                                    comments={comments[idx]}
+                                    images={images[idx]}
+                                    alignTextLeft={idx % 2 !== 0}
+                                />
+                            ))}
+                            <Footer />
+                        </TreeLimited>
+                    </main>
                 </DelayedBackground>
             </TreeStatusProvider>
         </ExitSlider>
