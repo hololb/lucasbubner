@@ -27,7 +27,9 @@ export default function Home() {
                 <div className="w-full flex justify-between items-center">
                     <Image src={Bubner} alt="Lucas Bubner" className="rounded-full" width={50} height={50} />
                     <Animated initial={{ y: "200%" }} animate={{ y: 0 }} transition={{ delay: 1.8 }}>
-                        <span className="__text-emp-red whitespace-nowrap font-extrabold text-4xl">Lucas Bubner</span>
+                        <span className="__text-emp-red whitespace-nowrap font-extrabold xsm:text-xl max-[330px]:text-xl text-2xl sm:text-4xl">
+                            Lucas Bubner
+                        </span>
                     </Animated>
                     <SoundLink
                         title="Go to CV/Resume"

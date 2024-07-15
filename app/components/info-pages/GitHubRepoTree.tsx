@@ -26,6 +26,7 @@ interface RepoInfo {
 
 interface ActiveItem {
     info: RepoInfo;
+    seed: boolean;
     uuid: string;
 }
 
@@ -92,24 +93,31 @@ function fetchAPIData() {
  * Represents an item that will travel up the screen and callback when completed.
  * @author Lucas Bubner, 2024
  */
-const Item = memo(({ info, callback }: { info: RepoInfo; callback: () => void }) => (
-    <Link href={info.url} target="_blank">
-        <motion.div
-            className="absolute bottom-0 left-0 bg-black/50 rounded-2xl p-3 flex flex-col gap-2 hover:bg-black transition-colors text-center duration-500"
-            // Spawn at a random x position to introduce some variety
-            initial={{ opacity: 0, bottom: 0, left: Math.random() * 90 + "%" }}
-            animate={{ opacity: 1, bottom: "100%" }}
-            transition={{ bottom: { duration: 15 }, opacity: { duration: 1 } }}
-            onAnimationComplete={callback}
-        >
-            <span className="text-blue-500 underline">{info.name}</span>
-            <div className="flex gap-2 items-center justify-center">
-                <Image src={imageMap.get(info.language) || Tag} width={20} height={20} alt={info.language} />
-                <span className="text-white">{info.language}</span>
-            </div>
-        </motion.div>
-    </Link>
-));
+const Item = memo(
+    ({ info, renderLeftSide, callback }: { info: RepoInfo; renderLeftSide: boolean; callback: () => void }) => {
+        const initialPosition = renderLeftSide
+            ? { left: Math.random() * 50 + "%" }
+            : { right: Math.random() * 50 + "%" };
+        return (
+            <Link href={info.url} target="_blank">
+                <motion.div
+                    className="absolute bottom-0 bg-black/50 rounded-2xl p-3 flex flex-col gap-2 hover:bg-black transition-colors text-center duration-500"
+                    // Spawn at a random x position to introduce some variety
+                    initial={{ ...{ opacity: 0, bottom: 0 }, ...initialPosition }}
+                    animate={{ opacity: 1, bottom: "100%" }}
+                    transition={{ bottom: { duration: 15 }, opacity: { duration: 1 } }}
+                    onAnimationComplete={callback}
+                >
+                    <span className="text-blue-500 underline">{info.name}</span>
+                    <div className="flex gap-2 items-center justify-center">
+                        <Image src={imageMap.get(info.language) || Tag} width={20} height={20} alt={info.language} />
+                        <span className="text-white">{info.language}</span>
+                    </div>
+                </motion.div>
+            </Link>
+        );
+    }
+);
 Item.displayName = "RepoItem";
 
 /**
@@ -123,6 +131,7 @@ export default function GitHubRepoTree() {
 
     useEffect(() => {
         repos.then((data) => setRepoList(data)).catch((e) => console.error(e));
+        window.scrollTo({ top: 0, behavior: "smooth" });
     }, [repos]);
 
     useEffect(() => {
@@ -139,7 +148,7 @@ export default function GitHubRepoTree() {
     }, [repoList, items]);
 
     function addItem(item: RepoInfo) {
-        setItems((curr) => [...curr, { info: item, uuid: v4() }]);
+        setItems((curr) => [...curr, { info: item, seed: Math.random() >= 0.5, uuid: v4() }]);
     }
 
     function removeItem(uuid: string) {
@@ -149,7 +158,12 @@ export default function GitHubRepoTree() {
     return repoList.length > 0 ? (
         <div className="h-[33vh] w-full">
             {items.map((item, _) => (
-                <Item key={item.uuid} info={item.info} callback={() => removeItem(item.uuid)} />
+                <Item
+                    renderLeftSide={item.seed}
+                    key={item.uuid}
+                    info={item.info}
+                    callback={() => removeItem(item.uuid)}
+                />
             ))}
         </div>
     ) : (
