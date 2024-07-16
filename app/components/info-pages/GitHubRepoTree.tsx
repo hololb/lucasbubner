@@ -14,7 +14,7 @@ import {
 } from "@/app/images";
 import { motion } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
-import Link from "next/link";
+import SoundLink from "../SoundLink";
 import { memo, useEffect, useMemo, useState } from "react";
 import { v4 } from "uuid";
 
@@ -99,7 +99,7 @@ const Item = memo(
             ? { left: Math.random() * 50 + "%" }
             : { right: Math.random() * 50 + "%" };
         return (
-            <Link href={info.url} target="_blank">
+            <SoundLink href={info.url} target="_blank">
                 <motion.div
                     className="absolute bottom-0 bg-black/50 rounded-2xl p-3 flex flex-col gap-2 hover:bg-black transition-colors text-center duration-500"
                     // Spawn at a random x position to introduce some variety
@@ -114,7 +114,7 @@ const Item = memo(
                         <span className="text-white">{info.language}</span>
                     </div>
                 </motion.div>
-            </Link>
+            </SoundLink>
         );
     }
 );
