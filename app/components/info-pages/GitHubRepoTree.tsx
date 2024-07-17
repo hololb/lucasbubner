@@ -35,8 +35,6 @@ interface ActiveItem {
  */
 const imageMap: Map<string, StaticImageData> = new Map([
     ["Python", Python],
-    // Jinja logo is too dark, can just use Python as it is a Python tool
-    ["Jinja", Python],
     ["Java", JavaCup],
     ["TypeScript", TypeScript],
     ["C# (Unity)", Unity],
@@ -73,10 +71,20 @@ function fetchAPIData() {
                 repoArray.forEach((repoData: any) => {
                     // Don't count it if it's archived or under a org .github or is my README repo
                     if (!repoData.archived && ![".github", "bubner"].includes(repoData.name)) {
-                        // Rename Unity-only languages to C# + Unity for clarity
-                        const lang = ["ShaderLab", "HLSL"].includes(repoData.language)
-                            ? "C# (Unity)"
-                            : repoData.language;
+                        // Rename Unity-only languages to C# + Unity for clarity and Jinja to Python
+                        let lang: string;
+                        switch (repoData.language) {
+                            case "ShaderLab":
+                            case "HLSL":
+                                lang = "C# (Unity)";
+                                break;
+                            case "Jinja":
+                                lang = "Python";
+                                break;
+                            default:
+                                lang = repoData.language;
+                                break;
+                        }
                         repos.push({ name: repoData.full_name, language: lang, url: repoData.html_url });
                     }
                 });
