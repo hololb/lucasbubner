@@ -19,7 +19,7 @@ function fetchAPIData() {
                 "https://api.github.com/users/Murray-Bridge-Bunyips/repos",
             ];
 
-            const responses = await Promise.all(urls.map((url) => fetch(url)));
+            const responses = await Promise.all(urls.map((url) => fetch(url, { next: { revalidate: 3600 } })));
             const jsonData = await Promise.all(
                 responses.map((response) => {
                     if (!response.ok) throw new Error(`HTTP ${response.status}`);
@@ -64,5 +64,5 @@ function fetchAPIData() {
  */
 export default async function GitHubRepoTree() {
     const repos = await fetchAPIData();
-    return <BubblingDisplay repos={repos} />
+    return <BubblingDisplay repos={repos} />;
 }

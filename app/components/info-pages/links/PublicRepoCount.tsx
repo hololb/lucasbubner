@@ -3,7 +3,7 @@
  * @author Lucas Bubner, 2024
  */
 export default async function PublicRepoCount() {
-    const repos = await fetch("https://api.github.com/users/bubner").then((res) => {
+    const repos = await fetch("https://api.github.com/users/bubner", { next: { revalidate: 3600 } }).then((res) => {
         if (!res.ok) {
             console.error("Cannot retrieve public repo count for @bubner. HTTP: " + res.status);
             return;
