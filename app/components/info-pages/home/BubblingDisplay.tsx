@@ -1,28 +1,24 @@
 "use client";
 
 import {
-    CPlusPlus,
-    CSharp,
-    HTMLBadge,
-    JavaCup,
-    JavaScript,
-    Kotlin,
     Python,
-    Tag,
+    JavaCup,
     TypeScript,
     Unity,
+    JavaScript,
+    HTMLBadge,
+    CPlusPlus,
+    CSharp,
+    Kotlin,
+    Tag,
 } from "@/app/images";
+import { StaticImageData } from "next/image";
+import { RepoInfo } from "./GitHubRepoTree";
 import { motion } from "framer-motion";
-import Image, { StaticImageData } from "next/image";
-import SoundLink from "../SoundLink";
-import { memo, useEffect, useMemo, useState } from "react";
+import { memo, useEffect, useState } from "react";
+import Image from "next/image";
+import SoundLink from "../../SoundLink";
 import { v4 } from "uuid";
-
-interface RepoInfo {
-    name: string;
-    language: string;
-    url: string;
-}
 
 interface ActiveItem {
     info: RepoInfo;
@@ -44,58 +40,6 @@ const imageMap: Map<string, StaticImageData> = new Map([
     ["C#", CSharp],
     ["Kotlin", Kotlin],
 ]);
-
-/**
- * Return all public repos associated with @bubner and parse to format <user>/<repo> and with the mainly used language.
- * @author Lucas Bubner, 2024
- */
-function fetchAPIData() {
-    return new Promise<RepoInfo[]>(async (resolve, reject) => {
-        try {
-            // GitHub repo sources to use as part of the data
-            const urls = [
-                "https://api.github.com/users/bubner/repos",
-                "https://api.github.com/users/Murray-Bridge-Bunyips/repos",
-            ];
-
-            const responses = await Promise.all(urls.map((url) => fetch(url)));
-            const jsonData = await Promise.all(
-                responses.map((response) => {
-                    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-                    return response.json();
-                })
-            );
-
-            const repos: RepoInfo[] = [];
-            jsonData.forEach((repoArray) => {
-                repoArray.forEach((repoData: any) => {
-                    // Don't count it if it's archived or under a org .github or is my README repo
-                    if (!repoData.archived && ![".github", "bubner"].includes(repoData.name)) {
-                        // Rename Unity-only languages to C# + Unity for clarity and Jinja to Python
-                        let lang: string;
-                        switch (repoData.language) {
-                            case "ShaderLab":
-                            case "HLSL":
-                                lang = "C# (Unity)";
-                                break;
-                            case "Jinja":
-                                lang = "Python";
-                                break;
-                            default:
-                                lang = repoData.language;
-                                break;
-                        }
-                        repos.push({ name: repoData.full_name, language: lang, url: repoData.html_url });
-                    }
-                });
-            });
-
-            resolve(repos);
-        } catch (error) {
-            reject(`Failed to fetch repositories: ${error}`);
-        }
-    });
-}
 
 /**
  * Represents an item that will travel up the screen and callback when completed.
@@ -129,16 +73,14 @@ const Item = memo(
 Item.displayName = "RepoItem";
 
 /**
- * Home page display component of GitHub repository names.
+ * Bubbling animation for GitHub repo data.
+ * @see GitHubRepoTree.tsx
  * @author Lucas Bubner, 2024
  */
-export default function GitHubRepoTree() {
-    const [repoList, setRepoList] = useState<RepoInfo[]>([]);
+export default function BubblingDisplay({ repos }: { repos: RepoInfo[] }) {
     const [items, setItems] = useState<ActiveItem[]>([]);
-    const repos = useMemo(() => fetchAPIData(), []);
 
     useEffect(() => {
-        repos.then((data) => setRepoList(data)).catch((e) => console.error(e));
         window.scrollTo({ top: 0, behavior: "smooth" });
     }, [repos]);
 
@@ -146,14 +88,15 @@ export default function GitHubRepoTree() {
         // Spawn every 3 seconds
         const id = setInterval(() => {
             // Find items that are not already out there and add a random one
-            const birb = repoList.filter((waiting) => items.findIndex((item) => item.info === waiting) === -1);
+            const birb = repos.filter((waiting) => items.findIndex((item) => item.info === waiting) === -1);
             if (birb.length === 0) return;
             const floor = Math.floor(Math.random() * birb.length);
             addItem(birb[floor]);
         }, 3000);
 
         return () => clearInterval(id);
-    }, [repoList, items]);
+    }, [repos, items]);
+    ``;
 
     function addItem(item: RepoInfo) {
         setItems((curr) => [...curr, { info: item, seed: Math.random() >= 0.5, uuid: v4() }]);
@@ -163,7 +106,7 @@ export default function GitHubRepoTree() {
         setItems((curr) => curr.filter((item) => item.uuid !== uuid));
     }
 
-    return repoList.length > 0 ? (
+    return repos.length > 0 ? (
         <div className="h-[33vh] w-full">
             {items.map((item, _) => (
                 <Item

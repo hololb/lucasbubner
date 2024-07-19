@@ -1,8 +1,10 @@
 import Box from "@/app/components/info-pages/Box";
 import entryIncrement from "@/app/components/info-pages/entry-timing";
-import PublicRepoCount from "@/app/components/info-pages/PublicRepoCount";
+import PublicRepoCount from "@/app/components/info-pages/links/PublicRepoCount";
+import LoadingWheel from "@/app/components/info-pages/LoadingWheel";
 import { GitHubBubner, GitHubDark, Instagram, LinkedIn, LinkedInBubner, Proton, Replit, WakaTime } from "@/app/images";
 import Image from "next/image";
+import { Suspense } from "react";
 
 export const metadata = { title: "Lucas Bubner • Links" };
 
@@ -21,9 +23,15 @@ export default function Links() {
                         <Image alt="Lucas Bubner on GitHub" className="rounded h-[28px] w-auto" src={GitHubBubner} />
                     </h1>
                     <span className="__clk">(click)</span>
-                    <p className="small">
+                    <Suspense
+                        fallback={
+                            <p>
+                                <LoadingWheel containerWidth="350px" />
+                            </p>
+                        }
+                    >
                         <PublicRepoCount />
-                    </p>
+                    </Suspense>
                 </Box>
                 <Box src={WakaTime} size={50} href="https://wakatime.com/@bubner" entryDelay={iter.next().value}>
                     <h1 className="flex justify-center items-center flex-col gap-1">

@@ -1,6 +1,6 @@
 import ContextualFadeIn from "@/app/components/info-pages/ContextualFadeIn";
-import DedupNavLinks from "@/app/components/info-pages/DedupNavLinks";
-import PageIndicator from "@/app/components/info-pages/PageIndicator";
+import DedupNavLinks from "@/app/components/info-pages/nav/DedupNavLinks";
+import PageIndicator from "@/app/components/info-pages/nav/PageIndicator";
 import SoundLink from "@/app/components/SoundLink";
 import { TreeStatusProvider } from "@/app/components/tree/TreeStatus";
 import { Announce, At, Bubner, Links, MainBackground, Profile, Script, Star } from "@/app/images";

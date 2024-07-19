@@ -1,15 +1,15 @@
-import Animated from "@/app/components/info-pages/Animated";
 import Box from "@/app/components/info-pages/Box";
-import ExpandingLine from "@/app/components/info-pages/ExpandingLine";
+import ExpandingLine from "@/app/components/info-pages/home/ExpandingLine";
+import FlickUpReveal from "@/app/components/info-pages/home/FlickUpReveal";
+import GitHubRepoTree from "@/app/components/info-pages/home/GitHubRepoTree";
+import LoadingWheel from "@/app/components/info-pages/LoadingWheel";
 import MinBox from "@/app/components/info-pages/MinBox";
 import SoundLink from "@/app/components/SoundLink";
 import { Bubner, Profile } from "@/app/images";
 import Image from "next/image";
-import { lazy, Suspense } from "react";
+import { Suspense } from "react";
 
 export const metadata = { title: "Lucas Bubner • Home" };
-
-const GitHubRepoTree = lazy(() => import("@/app/components/info-pages/GitHubRepoTree"));
 
 /**
  * Home page.
@@ -26,11 +26,11 @@ export default function Home() {
                 <ExpandingLine />
                 <div className="w-full flex justify-between items-center">
                     <Image src={Bubner} alt="Lucas Bubner" className="rounded-full" width={50} height={50} />
-                    <Animated initial={{ y: "200%" }} animate={{ y: 0 }} transition={{ delay: 1.8 }}>
+                    <FlickUpReveal entryDelay={1.8}>
                         <span className="__text-emp-red whitespace-nowrap font-extrabold xsm:text-xl max-[330px]:text-xl text-2xl sm:text-4xl">
                             Lucas Bubner
                         </span>
-                    </Animated>
+                    </FlickUpReveal>
                     <SoundLink
                         title="Go to CV/Resume"
                         href="/~/cv"
@@ -40,22 +40,12 @@ export default function Home() {
                     </SoundLink>
                 </div>
             </MinBox>
-            <Animated
-                className="__box"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 2, duration: 1 }}
-            >
-                <Suspense fallback={<p className="text-gray-500 !p-0">Loading...</p>}>
+            <MinBox initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2, duration: 1 }}>
+                <Suspense fallback={<LoadingWheel containerHeight="33vh" />}>
                     <GitHubRepoTree />
                 </Suspense>
-            </Animated>
-            <Animated
-                className="md:flex items-center justify-center"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 4 }}
-            >
+            </MinBox>
+            <div className="md:flex items-center justify-center">
                 <Box size={100} className="w-full" entryDelay={3.2}>
                     <h1>Hi!</h1>
                     <p>
@@ -72,7 +62,7 @@ export default function Home() {
                         industries.
                     </p>
                 </Box>
-            </Animated>
+            </div>
         </div>
     );
 }
