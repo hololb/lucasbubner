@@ -15,13 +15,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     // Titles are handled by the individual pages using metadata, this component will provide
     // the background and navbar which is common to all info pages.
 
-    ReactDOM.preload("/~/home", { as: "document" });
-    ReactDOM.preload("/~/accomplishments", { as: "document" });
-    ReactDOM.preload("/~/technology", { as: "document" });
-    ReactDOM.preload("/~/honourables", { as: "document" });
-    ReactDOM.preload("/~/projects", { as: "document" });
-    ReactDOM.preload("/~/links", { as: "document" });
-
     const hrefs = [
         { src: Bubner, alt: "Home", path: "/~/home" },
         { src: Star, alt: "Accomplishments", path: "/~/accomplishments" },

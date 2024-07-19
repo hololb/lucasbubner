@@ -13,7 +13,7 @@ export default function Accomplishments() {
     return (
         <>
             <Box src={YellowStar} size={33} entryDelay={iter.next().value}>
-                <h1>My accomplishments</h1>
+                <h1>My achievements</h1>
                 <p>
                     Accredited <b>self-motivation</b> to learn complex topics by intuition; shown levels of{" "}
                     <b>leadership</b> and <b>management</b> through captaincy of the MBHS Student Robotics Club;

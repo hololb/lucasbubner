@@ -51,7 +51,7 @@ export default function RootLayout({
                     }}
                 />
                 <noscript>
-                    <div className="fixed top-0 lg:bottom-0 lg:top-auto w-screen h-9 bg-yellow-600/30 text-white font-bold flex items-center z-50">
+                    <div className="sticky top-0 left-0 text-center w-screen h-auto min-h-9 bg-yellow-600/30 text-white font-bold flex items-center z-50">
                         <p className="mx-3">
                             Warning: JavaScript is not enabled.{" "}
                             <span className="font-light">This website may not look or function as intended.</span>
