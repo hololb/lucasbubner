@@ -22,10 +22,6 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    // While this is a SSR supported application layout, the reliance on JavaScript is still very high and not many things
-    // (if any) work without it, so we'll add a noscript warning then assume JavaScript is enabled from there onwards.
-    // The app could possibly be changed in the future to be more static rather than relying fully on JavaScript.
-
     // Note: A tree status provider is added here as the "root" tree layout, as it is used in the info pages to determine
     // if a fade animation is required between pages. Pages that need this context for themselves will define another tree status provider
     // as React will go to the nearest provider parent when looking for context.
@@ -46,8 +42,16 @@ export default function RootLayout({
                 <meta name="darkreader-lock" />
             </head>
             <body className={`${inter.className} bg-black overflow-x-hidden`}>
+                <noscript
+                    // framer-motion does not like it when JavaScript is disabled, often leaving components stuck at opacity: 0, therefore
+                    // we will force absolutely everything on the pages to be visible in the event we don't have JavaScript. We also try
+                    // to select the custom __nsz (no-script-zero) and box classes to reset transform properties for these items that move on entry.
+                    dangerouslySetInnerHTML={{
+                        __html: `<style>* { opacity: 1 !important } .__nsz, .__box, :has(.__box) { transform: translate(0) !important }</style>`,
+                    }}
+                />
                 <noscript>
-                    <div className="fixed bottom-0 w-screen h-9 bg-red-600 text-white font-bold flex items-center">
+                    <div className="fixed top-0 lg:bottom-0 lg:top-auto w-screen h-9 bg-yellow-600/30 text-white font-bold flex items-center z-50">
                         <p className="mx-3">
                             Warning: JavaScript is not enabled.{" "}
                             <span className="font-light">This website may not look or function as intended.</span>

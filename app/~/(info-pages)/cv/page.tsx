@@ -22,5 +22,6 @@ export default function CV() {
         };
     }, [router]);
 
-    return null;
+    // Fallback if the router redirect does not work
+    return <meta httpEquiv="refresh" content="1;URL=/serve/cv" />;
 }

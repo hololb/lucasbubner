@@ -18,14 +18,6 @@ export default function DelayedBackground({
     const redLineImage = useRef<HTMLImageElement>(null);
     const tree = useContext(TreeStatus);
 
-    useEffect(() => {
-        if (!documentContainer.current) return;
-        // Using a CSS property as a normal image does not have the capabilities of the background-repeat
-        // property, which is essential for this background that will effectively "wrap" the entire contents
-        // with one continuous image.
-        documentContainer.current.style.backgroundImage = `url(${background.src})`;
-    }, [background.src]);
-
     function recalculateHeight() {
         if (!documentContainer.current || !redLineImage.current) return;
         // The red line height should always be equal to the size of the document container
@@ -43,9 +35,13 @@ export default function DelayedBackground({
     // Tree requirements (2) will be the two UpReveal components, where we should render the component
     // to trigger the appropriate animation for the red line
 
+    // Using a CSS property as a normal image does not have the capabilities of the background-repeat
+    // property, which is essential for this background that will effectively "wrap" the entire contents
+    // with one continuous image.
     return (
         <motion.div
             ref={documentContainer}
+            style={{ backgroundImage: `url(${background.src})` }}
             className="bg-[length:200%] overflow-x-hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

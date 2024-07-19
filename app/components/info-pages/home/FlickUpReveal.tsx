@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
  */
 export default function FlickUpReveal({ children, entryDelay }: { children: React.ReactNode; entryDelay: number }) {
     return (
-        <motion.div initial={{ y: "200%" }} animate={{ y: 0 }} transition={{ delay: entryDelay }}>
+        <motion.div className="__nsz" initial={{ y: "200%" }} animate={{ y: 0 }} transition={{ delay: entryDelay }}>
             {children}
         </motion.div>
     );

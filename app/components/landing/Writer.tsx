@@ -4,6 +4,9 @@ import { useContext, useEffect, useState } from "react";
 import Typewriter from "typewriter-effect";
 import { motion, useAnimation } from "framer-motion";
 import { TreeStatus } from "../tree/TreeStatus";
+import Image from "next/image";
+import { DownArrow } from "@/app/images";
+import Link from "next/link";
 
 const shineVariants = {
     animate: {
@@ -46,6 +49,15 @@ export default function Writer() {
                 variants={shineVariants}
                 className="font-bold bg-clip-text [text-shadow:0_0_10px_rgba(255,255,255,0.5)] [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] bg-[linear-gradient(to_left,#ffffff,#cf8184,#f78488)] bg-[length:200%_100%] bg-[100%_0]"
             >
+                <noscript>
+                    computational <br />
+                    brilliance.
+                    <nav className="flex items-center justify-center mt-6">
+                        <Link href="~">
+                            <Image src={DownArrow} alt="Continue" width={50} height={50} />
+                        </Link>
+                    </nav>
+                </noscript>
                 <Typewriter
                     options={{
                         cursor: "|",

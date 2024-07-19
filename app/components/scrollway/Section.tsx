@@ -24,7 +24,7 @@ export default function Section({
     return (
         <div className={`__scrollway${alignTextLeft ? " __scrollway-align-right" : ""}`}>
             <motion.div
-                className="__scrollway-imgs"
+                className="__scrollway-imgs __nsz"
                 initial={{ x: alignTextLeft ? "-100%" : "100%", opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{ delay: 0.5, duration: 0.6 }}

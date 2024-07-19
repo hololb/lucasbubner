@@ -60,8 +60,8 @@ export default function PageIndicator() {
     return (
         <div className="w-full">
             <motion.div
-                initial={{ x: last?.indicatorPosition }}
-                animate={{ x: x }}
+                initial={{ x: last?.indicatorPosition, visibility: "hidden" }}
+                animate={{ x: x, visibility: "visible" }}
                 transition={{ type: "spring", stiffness: 200, damping: 30, delay: 0.2 }}
                 onAnimationComplete={() => last?.setIndicatorPosition(x)}
                 className="bg-red-600 py-[2px] w-4 px-1 rounded-2xl mb-[1px]"
