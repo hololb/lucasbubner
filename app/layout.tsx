@@ -47,7 +47,7 @@ export default function RootLayout({
                     // we will force absolutely everything on the pages to be visible in the event we don't have JavaScript. We also try
                     // to select the custom __nsz (no-script-zero) and box classes to reset transform properties for these items that move on entry.
                     dangerouslySetInnerHTML={{
-                        __html: `<style>* { opacity: 1 !important } .__nsz, .__box, :has(.__box) { transform: translate(0) !important }</style>`,
+                        __html: `<style>* { opacity: 1 !important } .__nsi { visibility: hidden } .__nsz, .__box, :has(.__box) { transform: translate(0) !important }</style>`,
                     }}
                 />
                 <noscript>
