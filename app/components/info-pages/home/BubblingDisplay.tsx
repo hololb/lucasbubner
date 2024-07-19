@@ -19,6 +19,7 @@ import { memo, useEffect, useState } from "react";
 import Image from "next/image";
 import SoundLink from "../../SoundLink";
 import { v4 } from "uuid";
+import LoadingWheel from "../LoadingWheel";
 
 interface ActiveItem {
     info: RepoInfo;
@@ -108,6 +109,11 @@ export default function BubblingDisplay({ repos }: { repos: RepoInfo[] }) {
 
     return repos.length > 0 ? (
         <div className="h-[33vh] w-full">
+            <noscript>
+                <div className="flex items-center justify-center h-full w-full">
+                    <LoadingWheel />
+                </div>
+            </noscript>
             {items.map((item, _) => (
                 <Item
                     renderLeftSide={item.seed}
