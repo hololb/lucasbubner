@@ -102,22 +102,22 @@ export default function Scrollway() {
             </>,
         ],
         [
-            <span key={15}>
+            <>
                 I am proficient with <span className="__text-emp-red">multiple</span> programming languages.
-            </span>,
-            <span key={16}>
+            </>,
+            <>
                 I am committed to <span className="__text-emp-red">continuous learning</span> and{" "}
                 <span className="__text-emp-red">professional growth</span>.
-            </span>,
-            <span key={17}>
+            </>,
+            <>
                 I am an adaptive <span className="__text-emp-red">problem solver</span>.
-            </span>,
-            <span key={18}>
+            </>,
+            <>
                 I am a <span className="__text-emp-red">self-directed</span> learner.
-            </span>,
-            <span key={19}>
+            </>,
+            <>
                 I am a <span className="__text-emp-red">critical</span> thinker.
-            </span>,
+            </>,
         ],
     ];
 
