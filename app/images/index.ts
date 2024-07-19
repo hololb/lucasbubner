@@ -28,7 +28,7 @@ import Script from "./scr.svg";
 import Announce from "./annoc.svg";
 import At from "./at.svg";
 import Links from "./link.svg";
-import Profile from "./pfp.svg";
+import CV from "./cv.png";
 import YellowStar from "./star2.svg";
 import Trophy from "./trophy.png";
 import Academics from "./aca.svg";
@@ -96,7 +96,7 @@ export {
     Announce,
     At,
     Links,
-    Profile,
+    CV,
     YellowStar,
     Trophy,
     Academics,

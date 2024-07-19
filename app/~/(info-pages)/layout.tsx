@@ -3,9 +3,8 @@ import DedupNavLinks from "@/app/components/info-pages/nav/DedupNavLinks";
 import PageIndicator from "@/app/components/info-pages/nav/PageIndicator";
 import SoundLink from "@/app/components/SoundLink";
 import { TreeStatusProvider } from "@/app/components/tree/TreeStatus";
-import { Announce, At, Bubner, Links, MainBackground, Profile, Script, Star } from "@/app/images";
+import { Announce, At, Bubner, CV, Links, MainBackground, Script, Star } from "@/app/images";
 import Image from "next/image";
-import ReactDOM from "react-dom";
 
 /**
  * Common layout for the bubner.me information pages.
@@ -22,7 +21,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         { src: Announce, alt: "Honourables", path: "/~/honourables" },
         { src: At, alt: "Projects", path: "/~/projects" },
         { src: Links, alt: "Links", path: "/~/links" },
-        { src: Profile, alt: "Go to CV/Resume", path: "/~/cv" },
+        { src: CV, alt: "Go to CV/Resume", path: "/~/cv" },
     ];
 
     return (

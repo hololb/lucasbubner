@@ -5,7 +5,7 @@ import GitHubRepoTree from "@/app/components/info-pages/home/GitHubRepoTree";
 import LoadingWheel from "@/app/components/info-pages/LoadingWheel";
 import MinBox from "@/app/components/info-pages/MinBox";
 import SoundLink from "@/app/components/SoundLink";
-import { Bubner, Profile } from "@/app/images";
+import { Bubner, CV } from "@/app/images";
 import Image from "next/image";
 import { Suspense } from "react";
 
@@ -36,7 +36,7 @@ export default function Home() {
                         href="/~/cv"
                         className="w-[50px] h-[50px] sm:w-[55px] sm:h-[55px] hover:bg-[#26292b] transition-colors p-1 rounded-xl"
                     >
-                        <Image src={Profile} alt="Go to CV/Resume" width={55} height={55} />
+                        <Image src={CV} alt="Go to CV/Resume" width={55} height={55} />
                     </SoundLink>
                 </div>
             </MinBox>
