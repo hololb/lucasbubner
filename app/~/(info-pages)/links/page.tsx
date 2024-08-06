@@ -33,7 +33,7 @@ export default function Links() {
                         <PublicRepoCount />
                     </Suspense>
                 </Box>
-                <Box src={WakaTime} size={50} href="https://wakatime.com/@bubner" entryDelay={iter.next().value}>
+                <Box src={WakaTime} size={30} href="https://wakatime.com/@bubner" entryDelay={iter.next().value}>
                     <h1 className="flex justify-center items-center flex-col gap-1">
                         WakaTime
                         <Image
@@ -48,7 +48,7 @@ export default function Links() {
                     <span className="__clk">(click)</span>
                     <p className="small">My programming statistics since July 2023.</p>
                 </Box>
-                <Box src={LinkedIn} size={36} href="https://linkedin.com/in/bubner/" entryDelay={iter.next().value}>
+                <Box src={LinkedIn} size={25} href="https://linkedin.com/in/bubner/" entryDelay={iter.next().value}>
                     <h1 className="flex justify-center items-center flex-col gap-1">
                         LinkedIn
                         <Image
