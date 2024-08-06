@@ -16,6 +16,10 @@ export const metadata = { title: "Lucas Bubner • Home" };
  * @author Lucas Bubner, 2024
  */
 export default function Home() {
+    const age = process.env.DOB
+        ? Math.floor((Date.now() - parseInt(process.env.DOB) * 1000) / (1000 * 60 * 60 * 24 * 365.25))
+        : "?";
+
     return (
         <div className="flex flex-col">
             <MinBox
@@ -49,9 +53,9 @@ export default function Home() {
                 <Box size={100} className="w-full" entryDelay={3.2}>
                     <h1>Hi!</h1>
                     <p>
-                        I'm <b>Lucas Bubner</b>, a <b>17-year-old</b> software developer. <br /> I am currently in high
-                        school as a<b> Year 11 student</b> passionate in the STEM/IT industries. This website is a
-                        showcase of my work and achievements.
+                        I'm <b>Lucas Bubner</b>, a <b>{age}-year-old</b> software developer.
+                        <br />I am currently in high school as a<b> Year 11 student</b> passionate in the STEM/IT
+                        industries. This website is a showcase of my work and achievements.
                     </p>
                 </Box>
                 <Box size={80} className="w-full" entryDelay={3.7}>
