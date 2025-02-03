@@ -54,7 +54,7 @@ export default function Home() {
                     <h1>Hi!</h1>
                     <p>
                         I'm <b>Lucas Bubner</b>, a <b>{age}-year-old</b> software developer.
-                        <br />I am currently in high school as a<b> Year 11 student</b> passionate in the STEM/IT
+                        <br />I am currently in high school as a<b> Year 12 student</b> passionate in the STEM/IT
                         industries. This website is a showcase of my work and achievements.
                     </p>
                 </Box>
